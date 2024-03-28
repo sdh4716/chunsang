@@ -116,7 +116,7 @@
 											<td rowspan="6" style="color:#000000 !important;">구름</td>
 											<td rowspan="6" style="color:#000000 !important;">6인</td>
 											<td rowspan="2" style="color:#000000 !important;">10만원 </td>
-											<td rowspan="2" style="color:#000000 !important;">12만원 </td>						
+											<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
 										</tr>
 										<tr>
 										</tr>
