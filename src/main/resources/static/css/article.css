@@ -1,0 +1,388 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Poppins:500&display=swap');
+
+/* 공통 */
+button{border:none}
+input[type=text], input[type=password]{box-shadow:none;transition:none;font-family:'notokr-regular'}
+input[type=text]:focus,input[type=text]:active, input[type=password]:focus, textarea:focus, select:focus, select:active{box-shadow:none;border:inherit!important;outline:none}
+input[type=submit]:focus{outline:none}
+input[type=submit]{border:none}
+button:focus,button:active{outline:none}
+.required, textarea.required{background-image:url(/skin/member/sh_basic/require.png)!important}
+
+/* 관리자 버튼 */
+.sh_adm_btn{width:85px;height:38px;border-radius:2px;border:1px solid #ffd8e1;font-size:13.5px;line-height:36px;color:#ff567f;letter-spacing:-.7px;background-color:#fff7f9;-webkit-transition:all .2s;transition:all .2s;font-family:'notokr-medium'}
+a.sh_adm_btn{display:block;text-align:center}
+.sh_adm_btn:hover{border-color:#fdb6c6}
+
+/*게시판 관리*/
+.basicset_title{text-align:center; font-size:17px; font-weight:bold; color:#777; padding:15px 0 5px 0;}
+.basicset {width:95%;padding:0;margin:15px;border:1px solid #ccc;border-spacing:0;border-collapse:collapse}
+.basicset th {width:20%; border-bottom:1px solid #ddd; background:#ebebeb; height:30px;}
+.basicset td {width:30%; border-bottom:1px solid #ddd; height:30px; padding:5px 0 5px 8px;}
+.basicset input{height:30px;border-radius:unset;box-shadow:none}
+.btn_submit{background:#555}
+.btn_submit:hover{background:#555}
+
+/* 버튼 공통 */
+.btn_type01{display:inline-block;width:180px;height:55px;margin:0 auto;border-radius:2px;font-size:15px;color:#fff;text-align:center;line-height:55px;background-color:#0054a6;-webkit-transition:all .2s;transition:all .2s;font-family:'notokr-medium'}
+.btn_type01:hover{background-color:#0064c5}
+a.cancel_btn{display:inline-block;vertical-align:top;width:75px;height:55px;border:none;border-radius:2px;font-size:15px;text-align:center;color:#fff;line-height:55px;background-color:#bbb;font-family:'notokr-medium'}
+a.btn_normal{display:inline-block;vertical-align:top;width:75px;height:55px;border:none;border-radius:2px;font-size:15px;text-align:center;color:#fff;line-height:55px;background-color:#bbb;font-family:'notokr-medium'}
+a.btn_line{display:inline-block;vertical-align:top;width:75px;height:55px;border:none;border-radius:2px;border:1px solid #d1d1d1;font-size:15px;text-align:center;color:#777;line-height:53px;font-family:'notokr-medium'}
+
+/* 페이지 */
+.pg_wrap{margin:40px 0 0;text-align:center;font-family:'notokr-regular'}
+.pg_wrap a{display:inline-block;vertical-align:middle}
+.pg_page{min-width:30px;height:30px;padding:0 5px;border:none;border-radius:0;font-size:14px;line-height:30px;color:#999;background:none}
+.pg_page:hover{background:none}
+.pg_current{display:inline-block;vertical-align:middle;min-width:30px;height:30px;padding:0 5px;border:none;border-radius:0;font-size:15px;font-weight:normal;line-height:29px;color:#222;background:none;box-shadow:none;font-family:'notokr-medium'}
+.pg_start, .pg_end{width:30px;height:30px;border-radius:2px;border:1px solid #e1e1e1;font-size:0;text-indent:0;background-color:#fff}
+.pg_start{margin-right:5px}
+.pg_next, .pg_prev{width:30px;height:30px;border-radius:2px;border:1px solid #e1e1e1;font-size:0;text-indent:0;background-color:#fff}
+.pg_next:before,.pg_prev:before{content:"\f105";padding:0;font-size:12px;text-align:center;color:#555;line-height:28px;letter-spacing:.5px;font-family:'fontawesome'}
+.pg_prev:before{content:"\f104"}
+.pg_prev:hover, .pg_prev:hover{background-color:#f6f6f6}
+.pg_end{margin-left:5px}
+.pg_start:before, .pg_end:before{content:"\f104 \f104";padding:0;font-size:12px;text-align:center;color:#555;line-height:28px;letter-spacing:.5px;font-family:'fontawesome'}
+.pg_end:before{padding-left:3px;content:"\f105 \f105"}
+.pg_start:hover, .pg_end:hover{background-color:#f6f6f6}
+
+/* 테이블 공통 */
+.sh_tbl_common{width:100%;border-top:1px solid #555;}
+.sh_tbl_common table{width:100%}
+.sh_tbl_common th{border-bottom:1px solid #e1e1e1;font-size:15px;font-weight:normal;color:#222;font-family:'notokr-medium'} 
+.sh_tbl_common td{border-bottom:1px solid #e1e1e1;font-size:14px;color:#777}
+
+/* -------- 리스트 시작 [s] */
+#sh_bo_list{font-size:15px;letter-spacing:-.3px;line-height:1.8;color:#666;font-family:'notokr-regular'}
+
+/* 게시판 분류 type1 */
+#bo_cate{padding:0;margin-bottom:30px;border:none;background:none}
+#bo_cate ul{overflow:hidden;margin-bottom:20px;text-align:center}
+#bo_cate li{display:inline-block;min-width:130px;margin:0 4px;padding:0;text-align:center;transition:all .2s;cursor:pointer;font-family:'notokr-bold'}
+#bo_cate li a{display:block;height:44px;padding:0 15px;border:1px solid #dfdfdf;border-radius:100px;font-weight:normal;font-size:15px;line-height:42px;color:#222}
+#bo_cate #bo_cate_on{border:2px solid #444;font-weight:normal;color:#222;line-height:40px;background:#fff;box-shadow:none}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active{background-color:transparent}
+
+/* rss */
+#sh_bo_list .list_top{position:relative;margin-bottom:12px}
+#sh_bo_list .list_top:after{display:block;content:"";visibility:hidden;clear:both}
+#sh_bo_list .list_top a{display:block;position:absolute;left:0;bottom:0;width:50px;height:24px;margin-top:18px;border-radius:2px;border:1px solid #e1e1e1;font-size:12px;text-align:center;line-height:21px;color:#aaa;background-color:#f6f6f6}
+#sh_bo_list .list_top a i{padding-right:5px}
+
+/* 검색 */
+#sh_bo_sch{float:right;padding-right:10px;border-radius:2px;border:1px solid #e1e1e1}
+#sh_bo_sch select{width:90px;height:40px;padding:0 0 0 10px;border:none;font-size:14px;color:#777;-webkit-appearance:none;appearance:none;background:url(/skin/board/sh_basic/img/select_arr.png) 95% center no-repeat ;font-family:'notokr-regular'}
+#sh_bo_sch select::-ms-expand {display:none}
+#sh_bo_sch input[type=text]{width:150px;height:40px;padding-left:5px;border:none;font-size:14px;color:#777}
+
+/* 리스트 */
+#sh_bo_list #sh_gall_ul{margin:0;padding:0;list-style:none;zoom:1}
+#sh_bo_list #sh_gall_ul:after{display:block;visibility:hidden;clear:both;content:""}
+#sh_bo_list .gall_li{position:relative;width:100%;margin-bottom:40px}
+#sh_bo_list .gall_li .gall_chk{position:absolute;top:0;left:10px;z-index:101}
+#sh_bo_list .gall_li .gall_con{overflow:hidden;background-color:#f6f6f6}
+#sh_bo_list .gall_li .gall_con > div{float:left;width:50%;margin:0 !important}
+#sh_bo_list .gall_li .gall_con .no_img{width:100%;background:#ddd;font-size:15px;line-height:340px;text-align:center;font-family:'notokr-medium'}
+#sh_bo_list .gall_li:nth-child(2n){border:1px solid #ddd}
+#sh_bo_list .gall_li:nth-child(2n) .gall_con{background:#fff}
+#sh_bo_list .gall_li:nth-child(2n) .gall_con .gall_img{float:right}
+#sh_bo_list .gall_img{overflow:hidden;position:relative;border:none}
+#sh_bo_list .gall_img:hover img{-webkit-transform:scale(1.05);transform:scale(1.05)}
+#sh_bo_list .gall_img img{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:.6s;transition:.6s;}
+#sh_bo_list .gall_text_href{position:relative;min-height:340px;padding:42px 45px 0 45px;font-family:'notokr-regular'}
+#sh_bo_list .gall_text_href .room_name{padding-bottom:24px;font-size:34px;line-height:34px;color:#222;font-family:'notokr-light'}
+#sh_bo_list .gall_text_href .caption{padding-bottom:20px;font-size:15px;color:#a2a2a2}
+#sh_bo_list .gall_text_href .room_info{padding-bottom:23px}
+#sh_bo_list .gall_text_href .room_info li{font-size:15px;line-height:29px;color:#666}
+#sh_bo_list .gall_text_href .room_info span{position:relative;display:inline-block;padding-right:14px;margin-right:14px;color:#222;font-family:'notokr-medium'}
+#sh_bo_list .gall_text_href .room_info span:before{position:absolute;right:0;top:11px;content:'';width:1px;height:8px;background:#c6c6c6}
+#sh_bo_list .gall_text_href .room_price_wrap{position:relative}
+#sh_bo_list .gall_text_href .room_price{overflow:hidden;width:100%;border-top:1px solid #d0d0d0;border-bottom:1px solid #d0d0d0;line-height:50px}
+#sh_bo_list .gall_text_href .room_price li{position:relative;display:inline-block;width:32.5%;font-size:13px;text-align:center;color:#666}
+#sh_bo_list .gall_text_href .room_price li span{display:inline-block;padding-left:7px;font-size:16px;color:#272727;font-family:'notokr-bold'}
+#sh_bo_list .gall_text_href .room_price li:before{position:absolute;right:0;top:18px;content:'';width:1px;height:15px;background:#d0d0d0}
+#sh_bo_list .gall_text_href .room_price li:last-child:before{display:none}
+#sh_bo_list .gall_text_href .room_price li.no_friday{width:49%}/* 금요일요금 없을때 */
+#sh_bo_list .gall_text_href .list_icon{position:absolute;right:-15px;bottom:37px;z-index:100;width:48px;height:48px;border-radius:48px;font-size:11px;line-height:48px;text-align:center;background:#a4a4a4;-webkit-transition:all .2s;transition:all .2s;font-family:'notokr-bold'}
+#sh_bo_list .gall_text_href .list_icon a{display:block;font-weight:normal;color:#fff}
+#sh_bo_list .gall_text_href .list_icon:hover{background-color:#333;transform:translateY(-7px)}
+
+/* 리스트 버튼 */
+#sh_bo_list .btn_area{position:relative;margin:20px 0}
+#sh_bo_list .btn_area:after{display:block;content:"";visibility:hidden;clear:both}
+#sh_bo_list .adm_btns{position:absolute;top:0;left:0}
+#sh_bo_list .adm_btns li{display:inline-block;vertical-align:top;margin-right:2px}
+#sh_bo_list .w_btn{float:right}
+#sh_bo_list .w_btn:hover{background-color:#0064c5}
+/* -------- 리스트 끝 [e] */
+
+/* -------- 글쓰기 시작 [s] */
+#sh_bo_w{font-size:15px;letter-spacing:-.3px;line-height:1.8;color:#666;font-family:'notokr-regular'}
+
+/* 라이트 */
+#sh_write_tbl label{font-size:15px}
+#sh_write_tbl th{width:16%;padding:10px 0;line-height:1.6;background-color:#f5f6f8}
+#sh_write_tbl td{padding:10px 0 10px 10px}
+#sh_write_tbl .cate_wrap{display:inline-block;min-width:181px;padding-left:10px;border-radius:2px;border:1px solid #e1e1e1}
+#sh_write_tbl .sh_select{min-width:160px;height:40px;border:none;font-size:15px;color:#777;background-color:transparent;font-family:'notokr-regular'}
+#sh_write_tbl .sh_select:focus, #sh_write_tbl .sh_select:active{border:none!important}
+#sh_write_tbl .sh_input{height:40px;padding:0 20px 0 12px;border:1px solid #e1e1e1;border-radius:2px;font-size:15px;color:#777;font-family:'notokr-regular'}
+#sh_write_tbl .sh_input:focus, #sh_write_tbl .sh_input:active{border:1px solid #e1e1e1!important;outline:none}
+#sh_write_tbl .frm_address{margin-top:5px}
+#sh_write_tbl .zip_btn{width:125px;height:40px;margin-left:2px;border:none;border-radius:2px;font-size:14px;color:#fff;background-color:#555;font-family:'notokr-medium'}
+#sh_write_tbl .read{background-color:#f5f6f8}
+#sh_write_tbl .txtarea{width:100%;height:100px;padding:12px}
+#sh_write_tbl .frm_file{height:auto;padding:0;font-size:14px}
+#sh_write_tbl .ps{font-size:14px;color:#ff567f}
+#sh_write_tbl span.ps{padding-left:10px}
+#sh_write_tbl .privacy{font-size:13px;background-color:#f5f6f8}
+#sh_write_tbl .agr_area{text-align:right}
+#sh_write_tbl .agr_area p{display:inline-block;vertical-align:middle}
+#sh_write_tbl .agr_area input{margin-left:10px}
+#sh_write_tbl .agr_area label{vertical-align:middle;font-size:14px}
+
+/* 라이트 버튼 */
+#sh_bo_w .btn_area{position:relative;margin:20px 0;text-align:center}
+/* -------- 글쓰기 끝 [e] */
+
+/* -------- 뷰 시작 [s] */
+#sh_bo_v{padding:0}
+#sh_bo_v .tit{text-align:center}
+#sh_bo_v .tit p{display:block;padding-bottom:22px;font-size:34px;line-height:34px;color:#222;font-family:'notokr-bold'}
+#sh_bo_v .tit span{font-weight:normal;font-size:15px;letter-spacing:1.5px;color:#4e4e4e;font-family:'notokr-medium'}
+.v_room_info{overflow:hidden;margin-top:36px;border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+.v_room_info li{position:relative;float:left;width:25%;padding:34px 0;text-align:center;box-sizing:border-box;font-family:'notokr-regular'}
+.v_room_info li:before{position:absolute;top:50%;right:0;content:'';width:1px;height:38px;margin-top:-19px;background:#ddd}
+.v_room_info li:last-child:before{display:none}
+.v_room_info .info_c{display:inline-block;padding:0 31px;margin-bottom:14px;border:1px solid #ccc;border-radius:100px;font-size:14px;line-height:33px}
+.v_room_info .info_name{font-size:18px;color:#222;font-family:'notokr-regular'}
+#bo_v_img{margin:39px 0 0}
+#bo_v_img div.gallery_img {overflow:hidden;width:100%;max-height:700px;margin-bottom:25px;text-align:center}
+#bo_v_img div.gallery_img .no_img{background:#ddd;line-height:700px;font-size:15px;text-align:center;font-family:'notokr-medium'}
+#bo_v_img div.gallery_img > img{width:auto;max-height:700px;vertical-align:middle; overflow: scroll;}
+#bo_v_img ul.gallery_thumb{overflow:hidden;margin-bottom:36px}
+#bo_v_img ul.gallery_thumb > li{position:relative;overflow:hidden;float:left;width:10%;height:86px;text-align:center;cursor:pointer;background-size:auto 100%!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#333!important}
+#bo_v_img ul.gallery_thumb > li:before{position:absolute;left:0;content:'';width:100%;height:100%;background:rgba(0,0,0,.3);-webkit-transition:opacity .3s;transition:opacity .3s}
+#bo_v_img ul.gallery_thumb > li.on:before{opacity:0}
+#bo_v_img ul.gallery_thumb > li:hover:before{opacity:0}
+.room_info_area{border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+.room_info_area .room_price{overflow:hidden;padding:56px 0 60px;border-bottom:1px solid #ddd}
+.room_info_area .room_price .info_tit{float:left;width:16%;font-size:26px;color:#222;font-family:'notokr-light'}
+.room_info_area .room_price .price_cont{float:left;width:84%}
+.room_info_area .room_price .price_cont table{width:100%;border:0;background:#ddd}
+.room_info_area .room_price .price_cont table th{font-weight:normal;font-size:15px;color:#333;background:#f7f7f7;font-family:'notokr-medium'}
+.room_info_area .room_price .price_cont table td{font-size:13px;color:#666;text-align:center;background:#fff;vertical-align:middle;border: 0.5px solid grey !important;}
+.room_guid{overflow:hidden;padding:54px 0}
+.room_guid > div{overflow:hidden;float:left;width:50%;}
+.room_guid .guid_tit{float:left;width:32%;font-size:26px;line-height:26px;color:#222;font-family:'notokr-light'}
+.room_guid .guid_txt{float:left;width:60%;font-size:14px;line-height:24px;color:#777;font-family:'notokr-regular'}
+#other_room{position:relative;padding:60px 100px 0;background:#fff}
+#other_room h3{margin-bottom:30px;font-weight:normal;font-size:19px;color:#222;text-align:center;font-family:'notokr-bold'}
+#other_room .pdt_tit{padding:20px 15px;font-size:17px;text-align:center;color:#444;font-family:'notokr-medium'}
+#other_room span{display:block;margin-bottom:7px;font-size:14px;color:#666;font-family:'notokr-regular'}
+#other_room .pdt_img{overflow:hidden}
+#other_room .pdt_img .no_img{width:100%;background:#ddd;line-height:186px;font-size:14px;text-align:center;font-family:'notokr-medium'}
+#other_room .slide_area{overflow:hidden}
+#other_room ul li{-webkit-transition:background .2s;transition:background .2s}
+#other_room ul li:hover{background-color:#f7f7f7}
+#other_room ul li a{display:block}
+#other_room .arr_btn button{position:absolute;top:174px;left:20px;z-index:9999;width:47px;height:47px;border-radius:47px;border:1px solid #d5d5d5;-webkit-transition:border .2s;transition:border .2s}
+#other_room .arr_btn .prev{background:url(/skin/board/ps_room/img/prev.png) center no-repeat}
+#other_room .arr_btn .next{left:auto;right:20px;background:url(/skin/board/ps_room/img/next.png) center no-repeat}
+.rsv_btn_area{overflow:hidden;margin:50px 0 30px;text-align:center}
+.rsv_btn_area li{position:relative;display:inline-block;width:154px;margin:0 5px;border-radius:100px;font-size:14px;line-height:45px;box-sizing:border-box;webkit-transition:all .3s;transition:all .3s;font-family:'notokr-medium'}
+.rsv_btn_area li a{display:block}
+.rsv_btn_area .rsv_btn{border:2px solid #333;background:#333}
+.rsv_btn_area .rsv_btn a{color:#fff}
+.rsv_btn_area .rsv_btn02{border:2px solid #ccc}
+.rsv_btn_area .rsv_btn02 a{color:#222}
+.rsv_btn_area li:hover{padding-right:30px;border:2px solid #222;background-color:transparent}
+.rsv_btn_area li span{display:block;position:absolute;right:45px;bottom:18px;width:4px;height:8px;background:url(/skin/board/ps_room/img/p0101_arr_black.png) 53% no-repeat;opacity:0;-webkit-transition:all .2s;transition:all .2s}
+.rsv_btn_area li span:before{display:block;content:"";position:absolute;top:3px;right:-1px;width:14px;height:2px;border-radius:2px;background-color:#333}
+.rsv_btn_area li:hover span{right:35px;opacity:1}
+.rsv_btn_area .rsv_btn:hover a{color:#222}
+
+/* 뷰 버튼 */
+#sh_bo_v .btn_area{overflow:hidden;position:relative;margin:20px 0}
+#sh_bo_v .btn_area ul{overflow:hidden}
+#sh_bo_v .btn_area ul li{float:left}
+#sh_bo_v .btn_area .left{float:left}
+#sh_bo_v .btn_area .left li{margin-right:4px}
+#sh_bo_v .btn_area .right{float:right}
+#sh_bo_v .btn_area .right li{margin-left:4px}
+#sh_bo_v .btn_area ul li a{height:45px;line-height:45px}
+#sh_bo_v .btn_area ul li a.w_btn{width:120px}
+/* -------- 뷰 끝 [e] */
+
+/* 폰트 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+/* 나눔스퀘어 */
+@font-face {
+	font-family: 'NanumSquare';
+	src: url(http://hw1100.szs.co.kr/css/font/NanumSquareR.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/NanumSquareR.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/NanumSquareR.ttf) format('truetype');
+}
+
+/* 본고딕 */
+@font-face {
+	font-family: 'notokr-thin';
+	src: url(http://hw1100.szs.co.kr/css/font/notokr-thin.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/notokr-thin.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/notokr-thin.woff2) format('woff2'),
+		 url(http://hw1100.szs.co.kr/css/font/notokr-thin.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/notokr-thin.ttf) format('truetype'),
+		 url(http://hw1100.szs.co.kr/css/font/notokr-thin.svg#notokr-thin) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'notokr-regular';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-regular.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-regular.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-regular.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-regular.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-regular.svg#notokr-regular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'notokr-medium';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-medium.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-medium.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-medium.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-medium.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-medium.svg#notokr-medium) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'notokr-light';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-light.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-light.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-light.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-light.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-light.ttf) format('truetype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-light.svg#notokr-light) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'notokr-demilight';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-demilight.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-demilight.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-demilight.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-demilight.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-demilight.ttf) format('truetype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-demilight.svg#notokr-demilight) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'notokr-bold';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-bold.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-bold.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-bold.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-bold.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-bold.svg#notokr-bold) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'notokr-black';
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-black.eot);
+    src: url(http://hw1100.szs.co.kr/css/font/notokr-black.eot?#iefix) format('embedded-opentype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-black.woff2) format('woff2'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-black.woff) format('woff'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-black.ttf) format('truetype'),
+         url(http://hw1100.szs.co.kr/css/font/notokr-black.svg#notokr-black) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* 아리따 */
+@font-face {
+	font-family: 'arita-thin';
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Thin.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Thin.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Thin.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Thin.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'arita-light';
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Light.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Light.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Light.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Light.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'arita-medium';
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Medium.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Medium.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Medium.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Medium.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'arita-semibold';
+	src: url(http://hw1100.szs.co.kr/css/font/arita-SemiBold.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/arita-SemiBold.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-SemiBold.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-SemiBold.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'arita-bold';
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Bold.eot);
+	src: url(http://hw1100.szs.co.kr/css/font/arita-Bold.eot?#iefix) format('embedded-opentype'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Bold.woff) format('woff'),
+		 url(http://hw1100.szs.co.kr/css/font/arita-Bold.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@media (max-width:480px){
+	#bo_v_img ul.gallery_thumb > li{
+		width:30%;
+	}	
+	
+	.v_room_info li {
+	    width: 45%;
+	    padding: 20px 0;
+	}
+	
+	.v_room_info li:before {
+	    position: absolute; 
+	    top: 50%;
+	    right: 0;
+	    content: '';
+	    width: 1px;
+	    height: 38px;
+	    margin-top: -19px;
+	    background: transparent;
+	}
+}
+
+@media (max-width:480px){
+#bo_v_img div.gallery_img {overflow:scroll;}
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="CommonDAO">
+	<insert id="insertSystemAccessLog" parameterType="java.util.Map">
+		INSERT INTO 
+			USER_ACCESS_LOG
+			(
+				ACCESS_TIME
+				, PAGE_NM
+				, ACCESS_URL
+				, IP
+				, OS
+				, BROWSER
+				, USER_AGENT
+				, IS_BOT
+			)
+			VALUES
+			(
+				SYSDATE()
+				, #{pageNm}
+				, #{accessUrl}
+				, #{ip}
+				, #{os}
+				, #{browser}
+				, #{userAgent}
+				, FN_CHK_BOT(#{isBot})
+			)
+	</insert>
+	
+	<select id="selectUserInfo" parameterType="com.chunsang.pension.comm.dto.UserDTO" resultType="com.chunsang.pension.comm.dto.UserDTO" >
+		SELECT
+			USER_ID,
+			USER_NM,
+			USER_PW,
+			USER_ROLE
+		FROM 
+			USER_INFO
+		WHERE
+			1 = 1
+			<if test='userId != null'>
+				AND USER_ID = #{userId}
+			</if>
+	</select>
+</mapper>
