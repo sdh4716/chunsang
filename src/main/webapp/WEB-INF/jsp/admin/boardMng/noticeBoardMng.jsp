@@ -33,6 +33,9 @@
             })
 
             //goSearch();
+            $("#btnBoardWrite").click(function(){
+            	location.href="/admin/boardWrite?bType=notice";
+            });
         });
     	
     	function createGrid(){
@@ -122,7 +125,7 @@
             			<div class="card">
 	            			<div class="card-body">
 	            				<div class="float-right" style="margin-bottom:20px;">
-		            				<button type="button" class="btn btn-outline-primary"><i class="fa fa-pencil"></i>&nbsp; 등록</button>
+		            				<button type="button" id="btnBoardWrite" class="btn btn-outline-primary"><i class="fa fa-pencil"></i>&nbsp; 등록</button>
 						            <!-- <button type="button" class="btn btn-outline-success"><i class="fa fa-magic"></i>&nbsp;등록</button> -->
 					            </div>
 	            				<div id="grid"></div>

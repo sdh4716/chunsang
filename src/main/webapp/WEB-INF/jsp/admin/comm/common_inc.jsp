@@ -29,7 +29,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
     <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
-
+    
+    <!-- ckeditor5 -->
+	<script src="/ckeditor5/build/ckeditor.js"></script>
+	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
    <style>
     	#weatherWidget .currentDesc {
         	color: #ffffff!important;
