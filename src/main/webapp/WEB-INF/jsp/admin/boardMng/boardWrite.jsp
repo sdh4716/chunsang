@@ -31,39 +31,27 @@
     			const params = $("#dataForm").serializeArray();
     			const content = myEditor.getData();
     			
-    			params.push(content);
-    			
-    			console.log(params);
-    			return;
+    			params.push({name : "boardId", value : "BOARD_01"});
+    			params.push({name : "content", value : content});
     			
     	        $.ajax({
-    	            url: "<c:url value='/comm/insertBoard'/>",
+    	            url: '/comm/insertBoard',
     	            type: 'POST',
+    	            async: false,
     	            data: params,
-    	            async: true,
     	            success: function (data) {
-    	            	console.log(data.list);
-    	                searchData = data;
-
-    	                $("#searchCnt").text("총 " + numberWithCommas(data.list == null ? 0 : data.list.length) + " 건");
-
-    	                // 현재 출력된 칼럼들의 값을 모두 조사하여 최적의 칼럼 사이즈를 찾아 배열로 반환.
-    	                // 만약 칼럼 사이즈들의 총합이 그리드 크기보다 작다면, 나머지 값들을 나눠 가져 그리드 크기에 맞추기
-    	                var colSizeList = AUIGrid.getFitColumnSizeList(myGridID, true);
-    	                // 구해진 칼럼 사이즈를 적용 시킴.
-    	                AUIGrid.setColumnSizeList(myGridID, colSizeList);
+    	            	if(data.isSuccess == true){
+    	            		alert("저장되었습니다.");
+    	            	}
     	            },
     	            error: function (xhr) {
-    	                console.log('실패 - ', xhr);
+    	                alert("저장에 실패하였습니다.\n관리자에게 문의하시기 바랍니다.");
     	            }
     	        });
     			
     		});
     		
         });
-    	
-    	
-        
     	
     </script>
     

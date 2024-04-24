@@ -8,7 +8,7 @@ import lombok.Data;
 public class BoardDTO {
 	
 	private String boardId;
-	private int seq;
+	private String seq;
 	private String title;
 	private String content;
 	private String atchFileId;
