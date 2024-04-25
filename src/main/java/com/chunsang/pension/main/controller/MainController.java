@@ -14,7 +14,7 @@ public class MainController {
 	 * @exception Exception
 	 */
 	
-	@RequestMapping( value = "/main.do")
+	@RequestMapping( value = "/main")
 	public ModelAndView mainPage(ModelAndView mav) throws Exception {
 		
 		mav.setViewName("/main");

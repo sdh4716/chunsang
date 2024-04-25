@@ -7,12 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 	
-	/**
-	 * 메인 페이지 이동
-	 * @param 
-	 * @return "/main/login"
-	 * @exception Exception
-	 */
 	@RequestMapping( value = "/admin")
 	public ModelAndView mainPage(ModelAndView mav) throws Exception {
 		mav.setViewName("admin/admin_main");
@@ -34,6 +28,13 @@ public class AdminController {
 	@RequestMapping( value = "/admin/boardWrite")
 	public ModelAndView boardWrite(ModelAndView mav) throws Exception {
 		mav.setViewName("admin/boardMng/boardWrite");
+		return mav;
+	}
+	
+	//게시글 상세
+	@RequestMapping( value = "/admin/boardDetail")
+	public ModelAndView boardDetail(ModelAndView mav) throws Exception {
+		mav.setViewName("admin/boardMng/boardDetail");
 		return mav;
 	}
 	

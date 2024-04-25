@@ -4,83 +4,121 @@
 <head>
     <%@include file="../comm/common_inc.jsp"%>    
     
+    <style type="text/css">
+    	
+    	a:hover {
+    		text-decoration:underline;
+    	}
+    
+    </style>
+    	
     <script>
     	var grid;
-    	var gridData;
     	
     	$(document).ready(function(){
-            createGrid();
             
-            grid.on('dblclick', (ev) => {
-                selEquipNo = grid.getValue(ev.rowKey,"equip_no")
-                selEquipNm = grid.getValue(ev.rowKey,"equip_nm")
-                $("#equip_no_pop").val(selEquipNo);
-                $("#equip_nm_pop").val(selEquipNm);
-                fnOpenPop()
-            });
-
-            grid.on('editingStart', (ev) => {
-                if(ev.columnName == 'status' || ev.columnName == 'class_cd') {
-                    grid.stop();
-                }
-            });
-
-            $('#sEquipNm').keydown(function (e) {
-                if(e.keyCode == 13) {
-                    e.preventDefault();
-                    goSearch();
-                }
-            })
-
-            //goSearch();
+    		createGrid();
+            getData();
+            
+            // 등록버튼 클릭
             $("#btnBoardWrite").click(function(){
             	location.href="/admin/boardWrite?bType=notice";
             });
+            
         });
     	
+    	// 데이터 조회
+    	function getData(){
+    		
+    		const url = "/comm/selectBoardList";
+    		
+    		$.ajax({
+    			url: url,
+    			type: 'GET',
+    			data : [],
+    			async : false,
+    			success: function(data) {
+    				console.log(data);
+    				grid.resetData(data.boardList);
+    			},
+    			error: function(xhr) {
+    			  console.log('실패 - ', xhr);
+    			}
+    		});
+    		
+    	}
+    	
+    	// tui그리드 생성
     	function createGrid(){
             grid = new tui.Grid({
                 el : document.getElementById('grid'),
-                data : gridData,
                 scrollX : false,
                 scrollY : false,
                 bodyHeight : 409,
                 editable : false,
+                pageOptions: {
+                    perPage: 5
+                },
                 columns : [
-                    {
+                	{
                         header : 'No.',
-                        name   : 'equip_nm',
-                        width: 100
+                        name   : 'seq',
+                        align  : "center",
+                        width  : 100
                     },{
                         header : '제목',
-                        align: "center",
-                        name   : 'manufacturer'
+                        name   : 'title',
+                  	 	align  : "center",
+                  	 	renderer: {
+                  	 		type : CustomLinkRenderer
+                  	 	}
                     },{
                         header : '작성자',
-                        align: "center",
-                        name   : '',
-                        width: 150
+                        name   : 'regId',
+                        align  : "center",
+                        width  : 150
                     },{
                         header : '작성일',
-                        align: "center",
-                        name   : '',
-                        width: 150
+                        name   : 'regDt',
+                        align  : "center",
+                        width  : 150
                     },{
                         header : '조회수',
-                        align: "left",
-                        name   : 'serial_no',
-                        width: 150
+                        name   : 'hitCnt',
+                        align  : "center",
+                        width  : 150
                     }
                 ],
                 columnOptions: {
                     resizable: true
                 }
+                
             });
-            const messageMap = {
-                display: {
-                    noData: '데이터가 존재하지 않습니다.'
-                }
-            };
+        }
+    	
+    	// 게시글 상세로 가기 위한 CustomLinkRenderer
+    	class CustomLinkRenderer {
+        	
+    		constructor(props){
+        		
+    			const el = document.createElement('a');
+        		
+        		this.el = el;
+        		this.render(props);
+        	}
+        	
+        	getElement() {
+        		return this.el;
+        	}
+        	
+        	render(props){
+        		
+        		const boardId = grid.getValue(props.rowKey,"boardId");
+        		const seq = grid.getValue(props.rowKey,"seq");
+        		
+        		this.el.href = '/admin/boardDetail?boardId=' + boardId + '&seq=' + seq;
+        		this.el.innerText = String(props.value);
+        	}
         }
     	
     </script>
@@ -91,7 +129,6 @@
     <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
         <%@include file="../comm/header.jsp"%>    
-        
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
@@ -125,8 +162,7 @@
             			<div class="card">
 	            			<div class="card-body">
 	            				<div class="float-right" style="margin-bottom:20px;">
-		            				<button type="button" id="btnBoardWrite" class="btn btn-outline-primary"><i class="fa fa-pencil"></i>&nbsp; 등록</button>
-						            <!-- <button type="button" class="btn btn-outline-success"><i class="fa fa-magic"></i>&nbsp;등록</button> -->
+		            				<button type="button" id="btnBoardWrite" class="btn btn-outline-primary">등록</button>
 					            </div>
 	            				<div id="grid"></div>
 	            			</div>
@@ -138,23 +174,9 @@
         </div>
         <!-- /.content -->
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-        <div class="footer-inner bg-white">
-            <div class="row">
-                <div class="col-sm-6">
-                    Copyright © 2018 Ela Admin
-                </div>
-                <div class="col-sm-6 text-right">
-                    Designed by <a href="https://colorlib.com">Colorlib</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <%@include file="../comm/footer.jsp"%> 
     </div>
     <!-- /#right-panel -->
-
-
     
 </body>
 </html>

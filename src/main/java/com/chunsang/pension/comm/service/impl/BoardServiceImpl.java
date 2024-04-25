@@ -1,5 +1,7 @@
 package com.chunsang.pension.comm.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -18,9 +20,18 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void insertBoard(BoardDTO board) throws Exception {
-		
 		boardDAO.insertBoard(board);
-		
 	}
+	
+	@Override
+	public void updateBoard(BoardDTO board) throws Exception {
+		boardDAO.updateBoard(board);
+	}
+
+	@Override
+	public List<BoardDTO> selectBoardList(BoardDTO board) throws Exception {
+		return boardDAO.selectBoardList(board);
+	}
+
 	
 }
