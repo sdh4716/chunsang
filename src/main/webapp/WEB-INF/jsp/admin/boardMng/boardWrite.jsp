@@ -14,7 +14,10 @@
     		//ckEditor init
     		ClassicEditor
             .create( document.querySelector( '#classic' ), {
-                language: 'ko' //언어설정
+                language: 'ko', //언어설정
+               	ckfinder: {
+                       uploadUrl : '/comm/ckImgUpload'
+                   }
             })
             .then( editor => {
 	            console.log( 'ckEditor이 초기화되었습니다.', editor );

@@ -37,6 +37,7 @@
     
     <!-- ckeditor5 -->
 	<script src="/ckeditor5/build/ckeditor.js"></script>
+	<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
 	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
    <style>
     	#weatherWidget .currentDesc {

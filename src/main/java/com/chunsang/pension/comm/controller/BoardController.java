@@ -11,12 +11,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chunsang.pension.comm.dto.BoardDTO;
 import com.chunsang.pension.comm.service.BoardService;
+import com.chunsang.pension.comm.util.PhotoUtil;
 import com.chunsang.pension.comm.vo.BoardVO;
 
 
@@ -26,6 +29,8 @@ public class BoardController {
 	
 	@Resource(name = "BoardService")
 	private BoardService boardService;
+	
+	private PhotoUtil photoUtil;
 	
 	// 게시글 저장
 	@RequestMapping(value = "/insertBoard", method=RequestMethod.POST)
@@ -107,7 +112,6 @@ public class BoardController {
 	            				.build();
 	            
 	            boardVOList.add(vo);
-	            
 	        }
 	        
 	        mav.addObject("boardList", boardVOList);
@@ -121,5 +125,16 @@ public class BoardController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	
+	@PostMapping("/ckImgUpload")
+	public ModelAndView upload(MultipartHttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("jsonView");
+
+        String uploadPath = photoUtil.ckUpload(request);
+        
+        mav.addObject("uploaded", true);
+        mav.addObject("url", uploadPath);
+        return mav;
+    }
 	
 }

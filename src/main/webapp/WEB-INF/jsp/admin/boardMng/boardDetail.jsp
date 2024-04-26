@@ -13,7 +13,7 @@
     }
     
     .contentBox{
-	    min-height: 360px;
+	    /* min-height: 360px; */
     }
     
     </style>
