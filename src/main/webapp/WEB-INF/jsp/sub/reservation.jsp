@@ -64,7 +64,7 @@
 										<tr>
 											<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
 											<td rowspan="6" style="color:#000000 !important;">하늘/구름</td>
-											<td rowspan="6" style="color:#000000 !important;">6인</td>
+											<td rowspan="6" style="color:#000000 !important;">하늘방 : 4인<br/>구름방 : 6인</td>
 											<td rowspan="2" style="color:#000000 !important;">10만원 </td>
 											<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
 										</tr>

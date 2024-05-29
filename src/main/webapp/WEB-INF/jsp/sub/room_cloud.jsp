@@ -126,7 +126,7 @@
 										<tr>
 										</tr>
 										<tr>
-											<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 넷째주~ 8월 둘째주)</td>
+											<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 셋째주~ 8월 셋째주)</td>
 											<td rowspan="2" colspan="2" style="color:#000000;">20만원</td>
 										</tr>
 										<tr>
@@ -149,7 +149,7 @@
 								<div class="room_guid">
 									<div class="guid_box">
 										<p class="guid_tit">시설안내</p>
-										<div class="guid_txt">TV, 가스레인지, 전자레인지, 전기밥솥, WIFI
+										<div class="guid_txt">TV, 가스레인지, 전자레인지, 전기밥솥, WIFI, 비데
 											주방용품일체, <br>샤워용품( 샴푸, 린스, 바디워시 )</div>
 									</div>
 									<div class="guid_box">
