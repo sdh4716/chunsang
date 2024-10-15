@@ -102,7 +102,8 @@
     		constructor(props){
         		
     			const el = document.createElement('a');
-        		
+    			
+    			
         		this.el = el;
         		this.render(props);
         	}

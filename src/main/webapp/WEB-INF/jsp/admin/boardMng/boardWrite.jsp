@@ -14,10 +14,12 @@
     		//ckEditor init
     		ClassicEditor
             .create( document.querySelector( '#classic' ), {
-                language: 'ko', //언어설정
-               	ckfinder: {
-                       uploadUrl : '/comm/ckImgUpload'
-                   }
+                language: 'ko' //언어설정
+                
+            	/* plugins: [
+            		uploadPlugin
+                ] */
+                
             })
             .then( editor => {
 	            console.log( 'ckEditor이 초기화되었습니다.', editor );
@@ -34,7 +36,7 @@
     		
     		//목록버튼 클릭
     		$("#btnList").click(function(){
-    			location.href='/admin/noticeMng'
+    			location.href='/admin/noticeMng';
     		});
     		
     		//저장버튼 클릭
@@ -141,6 +143,7 @@
 			
 			return bool;
 		}
+		
     	
     </script>
     

@@ -6,6 +6,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
+	<%@include file="../comm/common_inc.jsp"%>  
+	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>천상화원 관리자</title>
@@ -29,6 +31,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+
+	<!--  Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+    
+    
 
    <style>
     	#weatherWidget .currentDesc {
@@ -66,6 +73,101 @@
         }
 
     </style>
+    
+    <script>
+		
+		$("document").ready(function(){
+	        //방문자 통계 조회
+			selectUserVisit();
+		});	
+    	
+		function selectUserVisit(){
+			
+		    const startDt = new Date();
+		    const endDt = new Date();
+		    startDt.setDate(endDt.getDate() - 7);
+			
+			const url = "/admin/selectUserVisit";
+    		//const params = { "srchStDt" : formatDate(startDt) , "srchEndDt" : formatDate(endDt) };
+    		const params = { "srchStDt" : formatDate(startDt) , "srchEndDt" : formatDate(endDt) };
+    		
+    		$.ajax({
+    			url: url,
+    			type: 'GET',
+    			//data : params,
+    			data : params,
+    			async : false,
+    			success: function(data) {
+    				
+    				console.log("data");
+    				console.log(data);
+    				setVisitChart(data.visitList);
+    			},
+    			error: function(xhr) {
+    			  console.log('실패 - ', xhr);
+    			}
+    		});
+			
+		}
+		
+		function setVisitChart(visitList){
+			
+		    // 최근 7일의 날짜(label)와 방문자 수(data)를 담을 배열
+		    const labels = [];
+		    const data = [];
+
+		    // visitData 배열을 순회하여 label과 data에 각각 push
+		    visitList.forEach(item => {
+		        labels.push(item.accessTime); // accessTime 값을 label로 사용
+		        data.push(item.visitCnt);     // visitCnt 값을 data로 사용
+		    });
+
+		    // Chart.js로 차트를 그리기 위한 코드
+		    var ctx = document.getElementById('userVisit').getContext('2d');
+		    var myLineChart = new Chart(ctx, {
+		        type: 'line', // 차트 유형을 'line'으로 설정
+		        data: {
+		            labels: labels, // X축: 날짜
+		            datasets: [{
+		                label: '방문자 수',  // 데이터셋 라벨
+		                data: data,         // Y축: 각 날짜별 방문자 수
+		                fill: false,        // 선 아래 영역을 채울지 여부
+		                borderColor: 'rgba(75, 192, 192, 1)', // 선 색상
+		                tension: 0.1        // 곡선 정도
+		            }]
+		        },
+		        options: {
+		            responsive: true,
+		            plugins: {
+		                legend: {
+		                    display: true,
+		                    position: 'top', // 범례 위치
+		                }
+		            },
+		            scales: {
+		                x: {
+		                    display: true,
+		                    title: {
+		                        display: true,
+		                        text: '날짜'  // X축 라벨
+		                    }
+		                },
+		                y: {
+		                    display: true,
+		                    title: {
+		                        display: true,
+		                        text: '방문자 수'  // Y축 라벨
+		                    }
+		                }
+		            }
+		        }
+		    });
+			
+		}
+		
+	</script>
+	
+	
 </head>
 
 <body>
@@ -157,14 +259,15 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Traffic </h4>
+                                <h4 class="box-title">최근 7일 방문자통계 </h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="card-body">
-                                        <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="traffic-chart" class="traffic-chart"></div>
-                                    </div>
+	                                	<div>
+	                                		<canvas id="userVisit" width="" height="100%"></canvas>
+	                                	</div>
+		                            </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="card-body">
@@ -219,7 +322,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="serial">#</th>
-                                                    <th class="avatar">Avatar</th>
+                                                    <!-- <th class="avatar">Avatar</th> -->
                                                     <th>ID</th>
                                                     <th>Name</th>
                                                     <th>Product</th>
@@ -572,7 +675,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
 
     <!--  Chart js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
@@ -586,11 +689,11 @@
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/init/weather-init.js"></script>
+    <!-- <script src="assets/js/init/weather-init.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="assets/js/init/fullcalendar-init.js"></script>
+    <!-- <script src="assets/js/init/fullcalendar-init.js"></script> -->
 
     <!--Local Stuff-->
     <script>

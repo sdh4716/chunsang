@@ -4,6 +4,7 @@
 <!-- Left Panel -->
 <!-- Header-->
 <header id="header" class="header">
+	<%@include file="../comm/common_inc.jsp"%>
     <div class="top-left">
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="/img/common/mainLogo.png" alt="Logo" style="max-width:125px;"></a>

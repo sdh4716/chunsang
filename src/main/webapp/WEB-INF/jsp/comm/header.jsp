@@ -8,7 +8,7 @@
             <!-- topNavWrap [s] -->
             <div id="topNavWrap">	
                 <!-- 로고 -->
-                <h1 id="top_logo"><a href="main.do"><img src="img/common/mainLogo.png" alt="천상화원 로고" title="" style="height:40px;"></a></h1>
+                <h1 id="top_logo"><a href="main"><img src="img/common/mainLogo.png" alt="천상화원 로고" title="" style="height:40px;"></a></h1>
             
                 <!-- 상단메뉴 -->
                 <ul id="topNav">

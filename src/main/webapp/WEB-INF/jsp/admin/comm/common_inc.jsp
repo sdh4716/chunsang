@@ -35,9 +35,11 @@
     <script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.js"></script>
     <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <!-- ckeditor5 -->
 	<script src="/ckeditor5/build/ckeditor.js"></script>
-	<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+	<script src="/js/common/common.js"></script>
 	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
    <style>
     	#weatherWidget .currentDesc {

@@ -21,7 +21,7 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(userAccessInterceptor)
-				.addPathPatterns("/main.do");
+				.addPathPatterns("/main");
 	}
 	
 	// Ajax로 데이터를 받아올 때 jsonView를 사용하여 404 에러를 방지
