@@ -90,6 +90,39 @@ public class AdminController {
 		return mav;
 	}
 	
+	// 게시글 목록 조회
+	@RequestMapping(value = "/admin/selectUserVisitDetail", method=RequestMethod.GET)
+	public ModelAndView selectUserVisitDetail(@ModelAttribute SearchVO searchVO , BindingResult errors) throws Exception {
+		
+		ModelAndView mav  = new ModelAndView();
+		
+		try {
+			List<VisitDTO> visitDtoList = adminService.selectUserVisit(searchVO);
+			// BoardDTO를 BoardVO에 매핑
+			List<VisitVO> visitVoList = new ArrayList<VisitVO>();
+			
+			for (VisitDTO dto : visitDtoList) {
+				// VisitDto의 데이터를 visitVo에 매핑
+				VisitVO vo = VisitVO.builder()
+						.accessTime(dto.getAccessTime())
+						.visitCnt(dto.getVisitCnt())
+						.build();
+				
+				visitVoList.add(vo);
+			}
+			
+			mav.addObject("visitList", visitVoList);
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
 	
 	
 	

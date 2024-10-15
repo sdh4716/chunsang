@@ -53,7 +53,8 @@
 						<div class="room_price">
 							<p class="info_tit">가격정보<br><font style="font-size:18px;color:#ff0000;">*4인 기준</font></p>
 							<div class="price_cont">
-								<table width="100%" height="100%" class="room_text_table" style="background-color:#f3f3f3;min-height:300px;">
+								<div class="table_border" style="">
+       								<table width="100%" height="100%" class="room_text_table" style="background-color:#f3f3f3;min-height:300px;">
 										<tr> 
 											<td height="15%" width="30%" style="">구분</td>
 											<td width="17%" style="color:#000000 !important;">객실명</td>
@@ -82,7 +83,9 @@
 										</tr>
 										<tr>
 										</tr>
-								</table>
+									</table>
+            					</div>
+								
 							</div>
 						</div>
 						<div class="room_guid">

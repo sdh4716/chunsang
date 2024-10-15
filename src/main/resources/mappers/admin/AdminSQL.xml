@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="AdminDAO">
+	
+	<select id="selectUserVisitDetail" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDTO">
+		/* AdminDAO.selectUserVisitAll 방문자 수의 전체 정보를 조회 */
+		SELECT 
+			SEQ,
+			ACCESS_TIME,
+			OS,
+			BROWSER,
+			USER_AGENT,
+			IS_BOT
+		FROM
+			USER_ACCESS_LOG 
+		ORDER BY 
+			ACCESS_TIME
+	</select>
+	
+	<select id="selectUserVisit" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDTO">
+		/* AdminDAO.selectUserVisit 방문자 수의 전체 정보를 조회 */
+		SELECT 
+  			DATE_FORMAT(ACCESS_TIME, '%Y-%m-%d') as ACCESS_TIME,
+			count(*) as VISIT_CNT
+		FROM
+			USER_ACCESS_LOG
+		WHERE
+			ACCESS_TIME BETWEEN STR_TO_DATE(#{srchStDt}, '%Y-%m-%d') 
+								AND STR_TO_DATE(#{srchEndDt}, '%Y-%m-%d') + 1
+			AND IS_BOT != 'Y' 
+		GROUP BY 
+			DATE_FORMAT(ACCESS_TIME, '%Y-%m-%d')
+		ORDER BY  
+			ACCESS_TIME 
+	</select>
+	
+	
+</mapper>
