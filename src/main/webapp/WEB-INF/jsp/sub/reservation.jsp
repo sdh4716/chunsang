@@ -3,7 +3,9 @@
 <!doctype html>
 <html lang="ko">
 <head>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	<%@include file="../comm/common_inc.jsp"%>
+	
 </head>
 <body>
 
@@ -25,9 +27,13 @@
 			</div>
 			<script>
 				$(document).ready(function() {
+					
 					$('#subBnr .txt_area').delay(200).animate({
 						"opacity" : "1"
 					}, 800);
+					
+					calendarInit('user');
+					
 				});
 			</script>
 
@@ -50,6 +56,12 @@
 				<!-- 콘텐츠영역 -->
 				<div id="sh_content">
 					<div class="room_info_area">
+						
+						<div class="room_price">
+							<p class="info_tit">예약정보</p>
+							<div id="calendar" style=" width: 80%; margin: 0 auto;"></div>
+						</div>
+						
 						<div class="room_price">
 							<p class="info_tit">가격정보<br><font style="font-size:18px;color:#ff0000;">*4인 기준</font></p>
 							<div class="price_cont">
@@ -66,7 +78,7 @@
 											<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
 											<td rowspan="6" style="color:#000000 !important;">하늘/구름</td>
 											<td rowspan="6" style="color:#000000 !important;">하늘방 : 4인<br/>구름방 : 6인</td>
-											<td rowspan="2" style="color:#000000 !important;">10만원 </td>
+											<td rowspan="2" style="color:#000000 !important;">12만원 </td>
 											<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
 										</tr>
 										<tr>

@@ -102,48 +102,50 @@
 								<div class="room_price">
 					            	<p class="info_tit">가격정보<br><font style="font-size:18px;color:#ff0000;">*4인 기준</font></p>
 					                <div class="price_cont">
-									<table width="100%" height="100%" class="room_text_table" style="background-color:#f3f3f3;min-height:300px;">
-										<tr> 
-											<td height="15%" width="30%" style="">구분</td>
-											<td width="17%" style="color:#000000 !important;">객실명</td>
-											<td width="" style="color:#000000 !important;">최대인원</td>
-											<td width="" style="color:#000000 !important;">주중</td>
-											<td width="" style="color:#000000 !important;">주말,공휴일</td>
-										</tr>
-										<tr>
-											<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
-											<td rowspan="6" style="color:#000000 !important;">구름</td>
-											<td rowspan="6" style="color:#000000 !important;">6인</td>
-											<td rowspan="2" style="color:#000000 !important;">10만원 </td>
-											<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td rowspan="2" style="color:#000000;">성수기</td>
-											<td height="30%" rowspan="2" colspan="2" style="color:#000000;">15만원</td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 셋째주~ 8월 셋째주)</td>
-											<td rowspan="2" colspan="2" style="color:#000000;">20만원</td>
-										</tr>
-										<tr>
-										</tr>
-					
-										<!--<tr>
-											<td rowspan='2' style="color:#000000;">여름휴가기간<br/>(7월 넷째주~ 8월 둘째주)</td>
-											<td style="color:#000000;"> d</td>
-											<td style="color:#000000;"> d</td>
-											<td style="color:#000000;"> d</td>
-										</tr>
-										<tr>
-											<td style="color:#000000;"> d</td>
-											<td style="color:#000000;"> d</td>
-											<td style="color:#000000;"> d</td>
-										</tr>-->
-								</table>
+						                <div class="table_border" style="">
+						                	<table width="100%" height="100%" class="room_text_table" style="background-color:#f3f3f3;min-height:300px;">
+												<tr> 
+													<td height="15%" width="30%" style="">구분</td>
+													<td width="17%" style="color:#000000 !important;">객실명</td>
+													<td width="" style="color:#000000 !important;">최대인원</td>
+													<td width="" style="color:#000000 !important;">주중</td>
+													<td width="" style="color:#000000 !important;">주말,공휴일</td>
+												</tr>
+												<tr>
+													<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
+													<td rowspan="6" style="color:#000000 !important;">구름</td>
+													<td rowspan="6" style="color:#000000 !important;">6인</td>
+													<td rowspan="2" style="color:#000000 !important;">12만원 </td>
+													<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
+												</tr>
+												<tr>
+												</tr>
+												<tr>
+													<td rowspan="2" style="color:#000000;">성수기</td>
+													<td height="30%" rowspan="2" colspan="2" style="color:#000000;">15만원</td>
+												</tr>
+												<tr>
+												</tr>
+												<tr>
+													<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 셋째주~ 8월 셋째주)</td>
+													<td rowspan="2" colspan="2" style="color:#000000;">20만원</td>
+												</tr>
+												<tr>
+												</tr>
+							
+												<!--<tr>
+													<td rowspan='2' style="color:#000000;">여름휴가기간<br/>(7월 넷째주~ 8월 둘째주)</td>
+													<td style="color:#000000;"> d</td>
+													<td style="color:#000000;"> d</td>
+													<td style="color:#000000;"> d</td>
+												</tr>
+												<tr>
+													<td style="color:#000000;"> d</td>
+													<td style="color:#000000;"> d</td>
+													<td style="color:#000000;"> d</td>
+												</tr>-->
+											</table>
+						                </div>
 					                </div>
 					            </div>
 								<div class="room_guid">
