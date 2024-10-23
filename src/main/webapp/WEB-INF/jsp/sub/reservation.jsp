@@ -59,7 +59,7 @@
 						
 						<div class="room_price">
 							<p class="info_tit">예약정보</p>
-							<div id="calendar" style=" width: 80%; margin: 0 auto;"></div>
+							<div id="calendar" class="reservationCalendar" style=""></div>
 						</div>
 						
 						<div class="room_price">

@@ -305,6 +305,72 @@ a.btn_line{display:inline-block;vertical-align:top;width:75px;height:55px;border
 #bo_v_img div.gallery_img {overflow:scroll;}
 }
 
+@media (max-width:480px){
+	.room_price .info_tit {
+	    float: none !important;
+	    width: 100% !important;
+	    font-size: 20px !important;
+	    margin-left : 10px;
+	}
+}
+
+@media (max-width:480px){
+	.room_guid .guid_tit {
+		margin-left : 10px;
+	    float: none;
+	    width: 100% !important;
+	    font-size: 20px;
+	    /*line-height: 26px;*/
+	    color: #222;
+	    font-family: 'notokr-light';
+	}
+}
+
+@media (max-width:480px){
+	.room_guid .guid_txt {
+	    padding: 10px;
+	    float: left;
+	    width: 100%;
+	    font-size: 14px;
+	    line-height: 24px;
+	    color: #777;
+	    font-family: 'notokr-regular';
+	}
+}
+
+@media (max-width:480px){
+	.fc .fc-toolbar-title {
+	    font-size: 1em;
+	    margin: 0px;
+	}
+}
+
+@media (max-width:480px){
+	.room_info_area .room_price .price_cont {
+	    float: none;
+	    width: 95%;
+	    margin: 0 auto;
+	}
+}
+
+.reservationCalendar {
+	 width: 80%; 
+	 margin: 0 auto;
+}
+
+@media (max-width:480px){
+	.reservationCalendar {
+		 width: 95%; 
+		 margin: 0 auto;
+		 height: 500px;
+	}
+	
+	.fc-event-title.fc-sticky{
+	    white-space: normal;
+	    font-size : 11px;
+	}
+}
+
 .table_border{
 	display: inline-block; /* 내부 테이블 크기에 맞춤 */
 	border: 1px solid black; /* border 표시 */

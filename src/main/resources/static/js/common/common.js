@@ -1,3 +1,10 @@
+$(document).ready(function() {
+					
+	if (location.protocol === 'http:' && location.host != 'localhost:8080' ) {
+		location.href = 'https://' + location.host;
+		// location.href = 'https' + location.href.substring(4); // query 유지
+	}
+});
 
 // 날짜 형식 맞추기 (yyyy-mm-dd)
 function formatDate(date){
@@ -116,10 +123,10 @@ function convertToFullCalendarEvents(reservations, calendarStart, calendarEnd) {
         let backgroundColor = '';
 
         if (reservation.status === 'Reserved') {
-            title = reservation.roomName + ' : 예약됨';  // '예약됨' 상태
+            title = reservation.roomName + '방 : 예약됨';  // '예약됨' 상태
             backgroundColor = 'blue';  // 예약됨은 파란색
         } else if (reservation.status === 'Airbnb (Not available)') {
-            title = reservation.roomName + ' : 예약불가';  // '예약불가' 상태
+            title = reservation.roomName + '방 : 예약불가';  // '예약불가' 상태
             backgroundColor = 'gray';  // 예약 불가는 회색
         }
 

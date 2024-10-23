@@ -36,7 +36,7 @@
                 <!-- 서브페이지 [s] -->
                 <div id="greeting" class="pagecommon">
                     <div class="tit_area">
-                        해발 500m 고지의 맑은 공기<br />
+                        지리산 천고지 능선의 풍광이 한눈에 펼쳐진 아름다운 펜션<br />
                         <p><b>지리산</b>천상화원</p>
                     </div>
                     <div class="img"></div>
