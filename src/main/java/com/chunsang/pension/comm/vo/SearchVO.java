@@ -9,4 +9,5 @@ public class SearchVO {
 
 	private String srchStDt;
 	private String srchEndDt;
+	private String userType;
 }

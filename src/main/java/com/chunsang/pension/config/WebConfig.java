@@ -1,8 +1,11 @@
 package com.chunsang.pension.config;
 
+import java.net.IDN;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
@@ -30,5 +33,6 @@ public class WebConfig implements WebMvcConfigurer{
     MappingJackson2JsonView jsonView(){
         return new MappingJackson2JsonView();
     }
+    
 	
 }

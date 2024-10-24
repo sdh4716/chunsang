@@ -57,6 +57,15 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping( value = "/room")
+	public ModelAndView room(ModelAndView mav) throws Exception {
+		mav.addObject("sub_header_p", "room info");
+		mav.addObject("sub_header_title", "객실소개");
+		
+		mav.setViewName("/sub/room");
+		return mav;
+	}
+	
 	@RequestMapping( value = "/reservation")
 	public ModelAndView reservation(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "room info");

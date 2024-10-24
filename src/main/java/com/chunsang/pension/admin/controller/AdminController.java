@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chunsang.pension.admin.dto.VisitDTO;
+import com.chunsang.pension.admin.dto.VisitDetailDTO;
 import com.chunsang.pension.admin.service.AdminService;
+import com.chunsang.pension.admin.vo.VisitDetailVO;
 import com.chunsang.pension.admin.vo.VisitVO;
-import com.chunsang.pension.comm.dto.BoardDTO;
-import com.chunsang.pension.comm.vo.BoardVO;
 import com.chunsang.pension.comm.vo.SearchVO;
 
 @Controller
@@ -57,7 +57,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	// 게시글 목록 조회
+	//방문자수 통계 조회
 	@RequestMapping(value = "/admin/selectUserVisit", method=RequestMethod.GET)
 	public ModelAndView selectBoardList(@ModelAttribute SearchVO searchVO , BindingResult errors) throws Exception {
 		
@@ -90,28 +90,32 @@ public class AdminController {
 		return mav;
 	}
 	
-	// 게시글 목록 조회
+	//방문자 상세정보 조회
 	@RequestMapping(value = "/admin/selectUserVisitDetail", method=RequestMethod.GET)
 	public ModelAndView selectUserVisitDetail(@ModelAttribute SearchVO searchVO , BindingResult errors) throws Exception {
 		
 		ModelAndView mav  = new ModelAndView();
 		
 		try {
-			List<VisitDTO> visitDtoList = adminService.selectUserVisit(searchVO);
+			List<VisitDetailDTO> visitDetailDtoList = adminService.selectUserVisitDetail(searchVO);
 			// BoardDTO를 BoardVO에 매핑
-			List<VisitVO> visitVoList = new ArrayList<VisitVO>();
+			List<VisitDetailVO> visitDetailVoList = new ArrayList<VisitDetailVO>();
 			
-			for (VisitDTO dto : visitDtoList) {
+			for (VisitDetailDTO dto : visitDetailDtoList) {
 				// VisitDto의 데이터를 visitVo에 매핑
-				VisitVO vo = VisitVO.builder()
+				VisitDetailVO vo = VisitDetailVO.builder()
+						.seq(dto.getSeq())
 						.accessTime(dto.getAccessTime())
-						.visitCnt(dto.getVisitCnt())
+						.os(dto.getOs())
+						.browser(dto.getBrowser())
+						.isBot(dto.getIsBot())
+						.userAgent(dto.getUserAgent())
 						.build();
 				
-				visitVoList.add(vo);
+				visitDetailVoList.add(vo);
 			}
 			
-			mav.addObject("visitList", visitVoList);
+			mav.addObject("visitDetailList", visitDetailVoList);
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

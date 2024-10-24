@@ -73,7 +73,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- ckeditor5 -->
-	<script src="/js/common/common.js"></script>
+	<script src="/ckeditor5/build/ckeditor.js"></script>
+	<!-- <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script> -->
 	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
 	
 	<!-- fullcalendar -->
@@ -84,6 +85,7 @@
 	<script src="/js/packages/fullcalendar-6.1.15/packages/icalendar/index.global.min.js"></script>
 	<script src="/js/packages/fullcalendar-6.1.15/packages/core/locales/ko.global.min.js"></script>
 	
+	<script src="/js/common/common.js"></script>
 	
    <style>
     	#weatherWidget .currentDesc {

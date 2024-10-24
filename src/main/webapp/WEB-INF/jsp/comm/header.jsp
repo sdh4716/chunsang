@@ -15,7 +15,7 @@
                     <li class="menu-item active">
                         <a href="about">About</a>
                         <ul class="top_nav_s">
-                            <li><a href="">펜션소개</a></li>
+                            <li><a href="about">펜션소개</a></li>
                             <!-- <li><a href="">소분류</a></li>
                             <li><a href="">소분류</a></li> -->
                         </ul>
@@ -23,8 +23,8 @@
                     <li class="menu-item ">
                         <a href="room_sky">Room</a>
                         <ul class="top_nav_s">
-                            <li><a href="room_sky">하늘</a></li>
-                            <li><a href="room_cloud">구름</a></li>
+                            <li><a href="room">하늘</a></li>
+                            <li><a href="room">구름</a></li>
                         </ul>
                     </li>
                     <li class="menu-item ">
