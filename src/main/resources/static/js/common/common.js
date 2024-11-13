@@ -39,10 +39,25 @@ const uploadAdapter = (loader) => {
   };
 };*/
 
-function requestData(url, formData){
+function requestDataPost(url, formData){
 	$.ajax({
 		url: url,
 		type: 'POST',
+		data : formData,
+		async : false,
+		success: function(data) {
+			results= data;
+		},
+		error: function(xhr) {
+		  console.log('실패 - ', xhr);
+		}
+	});
+}
+
+function requestDataGet(url, formData){
+	$.ajax({
+		url: url,
+		type: 'GET',
 		data : formData,
 		async : false,
 		success: function(data) {
@@ -90,6 +105,7 @@ function addAvailableDates(calendar, calendarStart, calendarEnd) {
 }
 
 function getAirbnbCalendarData(calendar, calendarStart, calendarEnd, userType) {
+    
     // 비동기적으로 데이터 요청하고 처리하는 콜백
     requestDataAsync("/airbnb/getAirbnbCalendarData", {"userType" : userType}, function(results) {
         // 받아온 데이터를 콘솔에 출력

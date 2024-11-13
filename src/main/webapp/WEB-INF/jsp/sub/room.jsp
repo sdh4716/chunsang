@@ -24,6 +24,7 @@
 			</div>
 			<script>
 				$(document).ready(function() {
+					
 					$('#subBnr .txt_area').delay(200).animate({
 						"opacity" : "1"
 					}, 800);
@@ -65,6 +66,9 @@
 								disableOnInteraction : false,
 							},
 						});
+					
+					//객실 가격정보 조회
+					getRoomPrice();
 				});
 				
 				function showRoom(room){
@@ -79,6 +83,49 @@
 					
 					$(".content_" + room).css("display","");
 					
+				}
+				
+				function getRoomPrice(){
+					
+					// 비동기적으로 데이터 요청하고 처리하는 콜백
+				    requestDataGet("/sub/selectRoomPrice", {});
+					
+					const roomPriceList = results.roomPriceList;
+					
+					setRoomPrice(roomPriceList);
+					
+				}
+				
+				function setRoomPrice(roomPriceList){
+					
+					// forEach를 사용하여 배열의 각 요소를 출력
+					roomPriceList.forEach(function(price, index) {
+					    
+						let priceId = 'price';
+						
+						console.log(`${index + 1}: ${fruit}`);
+						
+						if(price.dayType == '주중'){
+							priceId += '_day';
+						}else if(price.dayType == '주말,공휴일'){
+							priceId += '_weekend';
+						}
+						
+						if(price.periodType == '성수기'){
+							priceId += '_sungsu';
+						}else if(price.periodType == '여름휴가기간'){
+							priceId += '_vacation';
+						}
+						
+						if(price.roomNm == '하늘'){
+							priceId += '_sky';
+						}else{
+							priceId += '_cloud';
+						}
+						
+						$('#' + priceId).text(price.price + '만원');
+						
+					});
 				}
 				
 			</script>
@@ -160,20 +207,20 @@
 													<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
 													<td rowspan="6" style="color:#000000 !important;">하늘</td>
 													<td rowspan="6" style="color:#000000 !important;">4인</td>
-													<td rowspan="2" style="color:#000000 !important;">12만원 </td>
-													<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
+													<td rowspan="2" style="color:#000000 !important;" id="price_day_sky">12만원 </td>
+													<td rowspan="2" style="color:#000000 !important;" id="price_weekend_sky">15만원 </td>						
 												</tr>
 												<tr>
 												</tr>
 												<tr>
 													<td rowspan="2" style="color:#000000;">성수기</td>
-													<td height="30%" rowspan="2" colspan="2" style="color:#000000;">15만원</td>
+													<td height="30%" rowspan="2" colspan="2" style="color:#000000;" id="price_sungsu_sky">15만원</td>
 												</tr>
 												<tr>
 												</tr>
 												<tr>
 													<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 셋째주~ 8월 셋째주)</td>
-													<td rowspan="2" colspan="2" style="color:#000000;">20만원</td>
+													<td rowspan="2" colspan="2" style="color:#000000;" id="price_vacation_sky">20만원</td>
 												</tr>
 												<tr>
 												</tr>
@@ -292,20 +339,20 @@
 													<td height="30%" rowspan="2" style="color:#000000 !important;">비수기</td>
 													<td rowspan="6" style="color:#000000 !important;">구름</td>
 													<td rowspan="6" style="color:#000000 !important;">6인</td>
-													<td rowspan="2" style="color:#000000 !important;">12만원 </td>
-													<td rowspan="2" style="color:#000000 !important;">15만원 </td>						
+													<td rowspan="2" style="color:#000000 !important;" id="price_day_cloud">12만원 </td>
+													<td rowspan="2" style="color:#000000 !important;" id="price_weekend_cloud">15만원</td>						
 												</tr>
 												<tr>
 												</tr>
 												<tr>
 													<td rowspan="2" style="color:#000000;">성수기</td>
-													<td height="30%" rowspan="2" colspan="2" style="color:#000000;">15만원</td>
+													<td height="30%" rowspan="2" colspan="2" style="color:#000000;" id="price_sungsu_cloud">15만원</td>
 												</tr>
 												<tr>
 												</tr>
 												<tr>
 													<td height="25%" rowspan="2" style="color:#000000;">여름휴가기간<br/>(7월 셋째주~ 8월 셋째주)</td>
-													<td rowspan="2" colspan="2" style="color:#000000;">20만원</td>
+													<td rowspan="2" colspan="2" style="color:#000000;" id="price_vacation_cloud">20만원</td>
 												</tr>
 												<tr>
 												</tr>

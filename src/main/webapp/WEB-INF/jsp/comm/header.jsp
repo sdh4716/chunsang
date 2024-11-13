@@ -21,7 +21,7 @@
                         </ul>
                     </li>
                     <li class="menu-item ">
-                        <a href="room_sky">Room</a>
+                        <a href="room">Room</a>
                         <ul class="top_nav_s">
                             <li><a href="room">하늘</a></li>
                             <li><a href="room">구름</a></li>
