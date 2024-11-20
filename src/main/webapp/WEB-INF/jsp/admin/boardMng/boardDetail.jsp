@@ -20,7 +20,6 @@
     
     <script>
     	
-    let myEditor;
     let boardId = '<c:out value="${param.boardId}"/>';
     let seq = '<c:out value="${param.seq}"/>';
     	

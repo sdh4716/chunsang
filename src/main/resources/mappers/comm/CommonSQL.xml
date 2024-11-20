@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="CommonDAO">
+	
+	<!-- 메인화면 접속 로그 저장 -->
 	<insert id="insertSystemAccessLog" parameterType="java.util.Map">
 		INSERT INTO 
 			USER_ACCESS_LOG
@@ -42,4 +44,47 @@
 				AND USER_ID = #{userId}
 			</if>
 	</select>
+	
+	<select id="selectRoomPrice" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.comm.model.RoomPrice">
+		/* SubDAO.selectRoomPrice 객실요금 조회 */
+		SELECT * FROM ROOM_PRICE
+	</select>
+	
+	<update id="updateRoomPrice" parameterType="com.chunsang.pension.comm.model.RoomPrice">
+		/* SubDAO.updateRoomPrice 객실요금 수정 */
+		UPDATE ROOM_PRICE
+			SET 
+				PRICE = #{price}
+		WHERE 
+			ROOM_NM = #{roomNm} 
+			AND PERIOD_TYPE = #{periodType}
+			AND DAY_TYPE = #{dayType}
+	</update>
+	
+	
+	<insert id="saveUploadFileInfo" parameterType="com.chunsang.pension.comm.model.UploadFile">
+		INSERT INTO 
+			UPLOAD_FILE
+			(
+				  FILE_ID
+				, FILE_SEQ
+				, FILE_NM
+				, CHG_FILE_NM
+				, FILE_SIZE
+				, REG_ID
+				, REG_DT
+			)
+			VALUES
+			(
+				  #{fileId}
+				, ( SELECT MAX(FILE_SEQ) + 1 FROM UPLOAD_FILE WHERE FILE_ID = #{fileId})
+				, #{fileNm}
+				, #{chgFileNm}
+				, #{fileSize}
+				, #{regId}
+				, SYSDATE()
+			)
+	</insert>
+	
+	
 </mapper>

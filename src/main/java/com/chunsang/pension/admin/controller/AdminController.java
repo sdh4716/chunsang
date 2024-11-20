@@ -26,6 +26,7 @@ public class AdminController {
 	@Resource(name = "AdminService")
 	private AdminService adminService;
 	
+	//관리자 페이지 메인
 	@RequestMapping( value = "/admin")
 	public ModelAndView mainPage(ModelAndView mav) throws Exception {
 		mav.setViewName("admin/admin_main");
@@ -38,9 +39,17 @@ public class AdminController {
 		return mav;
 	}
 	
+	//공지사항 관리
 	@RequestMapping( value = "/admin/noticeMng")
 	public ModelAndView noticeMng(ModelAndView mav) throws Exception {
 		mav.setViewName("admin/boardMng/noticeBoardMng");
+		return mav;
+	}
+	
+	//객실 요금 관리
+	@RequestMapping( value = "/admin/roomPriceMng")
+	public ModelAndView roomPriceMng(ModelAndView mav) throws Exception {
+		mav.setViewName("admin/roomMng/roomPriceMng");
 		return mav;
 	}
 	
@@ -126,8 +135,6 @@ public class AdminController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
-	
-	
 	
 	
 }

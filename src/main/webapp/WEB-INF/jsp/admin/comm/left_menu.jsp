@@ -21,6 +21,10 @@
                 <li class="menu-item-has-children dropdown" id="noticeBoardMng">
                     <a href="/admin/noticeMng" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>공지사항 관리</a>
                 </li>
+                <li class="menu-title">객실 관리</li>
+                <li class="menu-item-has-children dropdown" id="noticeBoardMng">
+                    <a href="/admin/roomPriceMng" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>객실 요금 관리</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

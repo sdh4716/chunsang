@@ -7,13 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 	
-	/**
-	 * 메인 페이지 이동
-	 * @param 
-	 * @return "/main/login"
-	 * @exception Exception
-	 */
-	
+	//메인화면
 	@RequestMapping( value = "/main")
 	public ModelAndView mainPage(ModelAndView mav) throws Exception {
 		
@@ -21,6 +15,7 @@ public class MainController {
 		return mav;
 	}
 	
+	//천상화원
 	@RequestMapping( value = "/about")
 	public ModelAndView aboutPage(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "location");
@@ -30,6 +25,7 @@ public class MainController {
 		return mav;
 	}
 
+	//오시는 길
 	@RequestMapping( value = "/location")
 	public ModelAndView locationPage(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "location");
@@ -39,24 +35,7 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping( value = "/room_sky")
-	public ModelAndView roomSky(ModelAndView mav) throws Exception {
-		mav.addObject("sub_header_p", "room info");
-		mav.addObject("sub_header_title", "객실소개");
-		
-		mav.setViewName("/sub/room_sky");
-		return mav;
-	}
-	
-	@RequestMapping( value = "/room_cloud")
-	public ModelAndView roomCloud(ModelAndView mav) throws Exception {
-		mav.addObject("sub_header_p", "room info");
-		mav.addObject("sub_header_title", "객실소개");
-		
-		mav.setViewName("/sub/room_cloud");
-		return mav;
-	}
-	
+	//객실안내
 	@RequestMapping( value = "/room")
 	public ModelAndView room(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "room info");
@@ -66,12 +45,23 @@ public class MainController {
 		return mav;
 	}
 	
+	//예약안내
 	@RequestMapping( value = "/reservation")
 	public ModelAndView reservation(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "room info");
 		mav.addObject("sub_header_title", "객실소개");
 		
 		mav.setViewName("/sub/reservation");
+		return mav;
+	}
+	
+	//공지사항
+	@RequestMapping( value = "/notice")
+	public ModelAndView notice(ModelAndView mav) throws Exception {
+		mav.addObject("sub_header_p", "room info");
+		mav.addObject("sub_header_title", "객실소개");
+		
+		mav.setViewName("/sub/notice");
 		return mav;
 	}
 	

@@ -38,6 +38,7 @@ public class AccountService implements UserDetailsService {
 			userDTO = UserDTO.builder()
 						.userId(username)
 						.build();
+			
 			userDTO = commonDAO.selectUser("CommonDAO.selectUserInfo", userDTO);
 
 			UserVO user = UserVO.builder()

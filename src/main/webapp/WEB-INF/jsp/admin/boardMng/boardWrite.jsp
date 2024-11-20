@@ -14,11 +14,8 @@
     		//ckEditor init
     		ClassicEditor
             .create( document.querySelector( '#classic' ), {
-                language: 'ko' //언어설정
-                
-            	/* plugins: [
-            		uploadPlugin
-                ] */
+                language: 'ko', //언어설정
+               	extraPlugins: [MyCustomUploadAdapterPlugin], // 커스텀 업로드 어댑터 추가
                 
             })
             .then( editor => {
@@ -45,7 +42,7 @@
     			const params = $("#dataForm").serializeArray();
     			const content = myEditor.getData();
     			
-    			params.push({name : "boardId", value : "BOARD_01"});
+    			params.push({name : "boardId", value : boardId});
     			params.push({name : "content", value : content});
     			
     			if(!validate()){
@@ -70,7 +67,7 @@
 	    	            success: function (data) {
 	    	            	if(data.isSuccess == true){
 	    	            		alert("저장되었습니다.");
-	    	            		location.href='/admin/noticeMng';
+	    	            		location.href='/admin/boardDetail?boardId=' + boardId + '&seq=' + seq;
 	    	            	}
 	    	            },
 	    	            error: function (xhr) {
@@ -207,6 +204,7 @@
 		            					<input type="hidden" id="seq" value="<c:out value="${param.seq}"/>" /> --%>
 		            					<input type="text" id="title" name="title" placeholder="제목을 입력해주세요" class="form-control">
 		            				</div>
+		            				
 		            				<div id="classic"></div>
 	            				</form>
 	            			</div>

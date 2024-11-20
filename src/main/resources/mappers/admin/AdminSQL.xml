@@ -3,17 +3,21 @@
 
 <mapper namespace="AdminDAO">
 	
-	<select id="selectUserVisitDetail" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDTO">
+	<select id="selectUserVisitDetail" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDetailDTO">
 		/* AdminDAO.selectUserVisitAll 방문자 수의 전체 정보를 조회 */
 		SELECT 
 			SEQ,
-			ACCESS_TIME,
+			DATE_FORMAT(ACCESS_TIME, '%Y-%m-%d') as ACCESS_TIME,
 			OS,
 			BROWSER,
 			USER_AGENT,
 			IS_BOT
 		FROM
 			USER_ACCESS_LOG 
+		WHERE
+			ACCESS_TIME BETWEEN STR_TO_DATE(#{srchStDt}, '%Y-%m-%d') 
+								AND STR_TO_DATE(#{srchEndDt}, '%Y-%m-%d') + 1
+			AND IS_BOT != 'Y'
 		ORDER BY 
 			ACCESS_TIME
 	</select>

@@ -42,11 +42,13 @@
                         </ul>
                     </li>
                     <li class="menu-item ">
+                        <a href="https://blog.naver.com/kjd6946" target='_blank'>Notice</a>
+                        <ul class="top_nav_s">
+                            <li><a href="reservation">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
                         <a href="https://blog.naver.com/kjd6946" target='_blank'>Naver Blog</a>
-                        <!-- <ul class="top_nav_s">
-                            <li><a href="">소분류</a></li>
-                            <li><a href="">소분류</a></li>
-                        </ul> -->
                     </li>
                     <!-- <li class="menu-item ">
                         <a href="">Community</a>

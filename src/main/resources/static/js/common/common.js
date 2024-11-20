@@ -4,6 +4,79 @@ $(document).ready(function() {
 		location.href = 'https://' + location.host;
 		// location.href = 'https' + location.href.substring(4); // query 유지
 	}
+	
+		$('.search-trigger').on('click', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		$('.search-trigger').parent('.header-left').addClass('open');
+	});
+
+	$('.search-close').on('click', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		$('.search-trigger').parent('.header-left').removeClass('open');
+	});
+
+	$('.equal-height').matchHeight({
+		property: 'max-height'
+	});
+
+	// var chartsheight = $('.flotRealtime2').height();
+	// $('.traffic-chart').css('height', chartsheight-122);
+
+
+	// Counter Number
+	$('.count').each(function () {
+		$(this).prop('Counter',0).animate({
+			Counter: $(this).text()
+		}, {
+			duration: 3000,
+			easing: 'swing',
+			step: function (now) {
+				$(this).text(Math.ceil(now));
+			}
+		});
+	});
+
+
+	 
+	 
+	// Menu Trigger
+	$('#menuToggle').on('click', function(event) {
+		var windowWidth = $(window).width();   		 
+		if (windowWidth<1010) { 
+			$('body').removeClass('open'); 
+			if (windowWidth<760){ 
+				$('#left-panel').slideToggle(); 
+			} else {
+				$('#left-panel').toggleClass('open-menu');  
+			} 
+		} else {
+			$('body').toggleClass('open');
+			$('#left-panel').removeClass('open-menu');  
+		} 
+			 
+	}); 
+
+	 
+	$(".menu-item-has-children.dropdown").each(function() {
+		$(this).on('click', function() {
+			var $temp_text = $(this).children('.dropdown-toggle').html();
+			$(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>'); 
+		});
+	});
+
+
+	// Load Resize 
+	$(window).on("load resize", function(event) { 
+		var windowWidth = $(window).width();  		 
+		if (windowWidth<1010) {
+			$('body').addClass('small-device'); 
+		} else {
+			$('body').removeClass('small-device');  
+		} 
+		
+	});
 });
 
 // 날짜 형식 맞추기 (yyyy-mm-dd)
@@ -15,7 +88,7 @@ function formatDate(date){
 }
 
 //ckEditor 이미지 업로드 utils
-const uploadAdapter = (loader) => {
+/*const uploadAdapter = (loader) => {
    return {
      upload: () => {
        return new Promise((resolve, reject) => {
@@ -28,8 +101,54 @@ const uploadAdapter = (loader) => {
        });
      },
    };
- };
+ };*/
  
+ 
+class MyUploadAdapter {
+    constructor(loader) {
+        this.loader = loader;
+        this.url = '/comm/uploadFile'; // 서버 업로드 엔드포인트
+    }
+
+    upload() {
+        return this.loader.file
+            .then((file) => new Promise((resolve, reject) => {
+                const formData = new FormData();
+                formData.append('file', file);
+
+                $.ajax({
+                    url: this.url,
+                    type: 'POST',
+                    data: formData,
+                    processData: false, // 파일 데이터를 쿼리 문자열로 변환하지 않음
+                    contentType: false, // Content-Type을 자동으로 설정
+                    success: (response) => {
+                        if (response.uploaded) {
+                            resolve({
+                                default: response.url, // 서버에서 반환된 이미지 URL
+                            });
+                        } else {
+                            reject(response.error || '업로드 실패');
+                        }
+                    },
+                    error: (xhr, status, error) => {
+                        console.error('AJAX 요청 중 오류 발생:', error);
+                        reject('업로드 실패');
+                    },
+                });
+            }));
+    }
+
+    abort() {
+        console.warn('업로드가 중단되었습니다.');
+    }
+}
+
+function MyCustomUploadAdapterPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+        return new MyUploadAdapter(loader);
+    };
+}
 
 /*const uploadPlugin = (editor) => {
   editor.plugins.get('FileRepository').createUploadAdapter = (

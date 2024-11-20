@@ -29,15 +29,21 @@
     </style>
     
     <script>
+    	
     	const startDt = new Date();
 	    const endDt = new Date();
 	    startDt.setDate(endDt.getDate() - 7);	
     
 		$("document").ready(function(){
-	        //방문자 통계 조회
+	        
+			//최근 7일 방문자 통계 조회
 			selectUserVisit();
 	        
+			//예약정보 캘린더 초기화
 			calendarInit('admin');
+			
+			//최근 7일 방문자 상세정보 조회
+			selectUserVisitDetail();
 			
 		});	
     	
@@ -123,7 +129,24 @@
 		
 		function selectUserVisitDetail(){
 			
-			const params = {}
+			const url = "/admin/selectUserVisitDetail";
+    		const params = { "srchStDt" : formatDate(startDt) , "srchEndDt" : formatDate(endDt) };
+    		
+    		$.ajax({
+    			url: url,
+    			type: 'GET',
+    			//data : params,
+    			data : params,
+    			async : false,
+    			success: function(data) {
+    				
+    				console.log("visitDetail");
+    				console.log(data);
+    			},
+    			error: function(xhr) {
+    			  console.log('실패 - ', xhr);
+    			}
+    		});
 			
 		}
 		
@@ -142,7 +165,7 @@
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
@@ -213,24 +236,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /Widgets -->
                 <!-- Orders -->
                 <div class="orders">
                     <div class="row">
-                        <div class="col-xl-8">
+                        <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="box-title">예약정보 </h4>
                                 </div>
                                 <div class="card-body--">
-                                	<div id="calendar" style=" width: 65%; margin: 0 auto; padding:20px;"></div>
+                                	<div id="calendar" style="height:95%; margin: 0 auto; padding:20px;"></div>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
 
-                        <div class="col-xl-4">
+                        <!-- <div class="col-xl-4">
                             <div class="row">
                                 <div class="col-lg-6 col-xl-12">
                                     <div class="card br-0">
@@ -239,7 +262,7 @@
                                                 <div id="flotPie1" class="float-chart"></div>
                                             </div>
                                         </div>
-                                    </div><!-- /.card -->
+                                    </div>/.card
                                 </div>
 
                                 <div class="col-lg-6 col-xl-12">
@@ -253,7 +276,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- /.col-md-4 -->
+                        </div> /.col-md-4 -->
                     </div>
                 </div>
                 <!-- /.orders -->
@@ -312,7 +335,7 @@
                 <!--  /Traffic -->
                 <div class="clearfix"></div>
                 <!-- To Do and Live Chat -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -366,10 +389,10 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div> <!-- /.todo-list -->
+                                    </div> /.todo-list
                                 </div>
-                            </div> <!-- /.card-body -->
-                        </div><!-- /.card -->
+                            </div> /.card-body
+                        </div>/.card
                     </div>
 
                     <div class="col-lg-6">
@@ -395,7 +418,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div><!-- /.msg-received -->
+                                                </div>/.msg-received
                                             </li>
                                             <li>
                                                 <div class="msg-sent msg-container">
@@ -413,7 +436,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div><!-- /.msg-sent -->
+                                                </div>/.msg-sent
                                             </li>
                                         </ul>
                                         <div class="send-mgs">
@@ -424,24 +447,24 @@
                                                 <i class="pe-7s-paper-plane"></i>
                                             </button>
                                         </div>
-                                    </div><!-- /.messenger-box -->
+                                    </div>/.messenger-box
                                 </div>
-                            </div> <!-- /.card-body -->
-                        </div><!-- /.card -->
+                            </div> /.card-body
+                        </div>/.card
                     </div>
-                </div>
+                </div> -->
                 <!-- /To Do and Live Chat -->
                 <!-- Calender Chart Weather  -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <!-- <h4 class="box-title">Chandler</h4> -->
+                                <h4 class="box-title">Chandler</h4>
                                 <div class="calender-cont widget-calender">
                                     <div id="calendar"></div>
                                 </div>
                             </div>
-                        </div><!-- /.card -->
+                        </div>/.card
                     </div>
 
                     <div class="col-lg-4 col-md-6">
@@ -450,7 +473,7 @@
                                 <div id="flotBarChart" class="float-chart ml-4 mr-4"></div>
                             </div>
                             <div id="cellPaiChart" class="float-chart"></div>
-                        </div><!-- /.card -->
+                        </div>/.card
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="card weather-box">
@@ -460,9 +483,9 @@
                                     <div id="weather-one" class="weather-one"></div>
                                 </div>
                             </div>
-                        </div><!-- /.card -->
+                        </div>/.card
                     </div>
-                </div>
+                </div> -->
                 <!-- /Calender Chart Weather -->
                 <!-- Modal - Calendar - Add New Event -->
                 <div class="modal fade none-border" id="event-modal">
