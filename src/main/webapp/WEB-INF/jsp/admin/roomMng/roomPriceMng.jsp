@@ -26,6 +26,10 @@
             	saveRoomPrice();
             });
             
+            window.addEventListener('resize', () => {
+                grid.refreshLayout(); // TUI Grid 레이아웃 강제 재조정
+            });
+            
         });
     	
     	// 데이터 조회
@@ -187,7 +191,10 @@
 	            				<div class="float-right" style="margin-bottom:20px;">
 		            				<button type="button" id="btnSave" class="btn btn-outline-primary">저장</button>
 					            </div>
-	            				<div id="grid"></div>
+					            <div style="width:100%; overflow-x:auto;">
+					            	<div id="grid"></div>
+					            </div>
+	            				
 	            			</div>
 	            		</div>
             		</div>

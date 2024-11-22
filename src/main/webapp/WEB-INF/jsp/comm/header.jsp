@@ -42,9 +42,9 @@
                         </ul>
                     </li>
                     <li class="menu-item ">
-                        <a href="https://blog.naver.com/kjd6946" target='_blank'>Notice</a>
+                        <a href="notice">Notice</a>
                         <ul class="top_nav_s">
-                            <li><a href="reservation">공지사항</a></li>
+                            <li><a href="notice">공지사항</a></li>
                         </ul>
                     </li>
                     <li class="menu-item ">

@@ -12,8 +12,11 @@
     	clear:both;
     }
     
-    .contentBox{
-	    /* min-height: 360px; */
+    #content img{
+	    max-width: 100%; /* 컨테이너를 넘지 않도록 설정 */
+	    height: auto; /* 가로 세로 비율 유지 */
+	    margin: 0 auto; /* 가운데 정렬 */
+	    aspect-ratio: attr(width) / attr(height); /* CKEditor의 비율 유지 */
     }
     
     </style>

@@ -65,6 +65,14 @@ public class MainController {
 		return mav;
 	}
 	
+	//공지사항
+	@RequestMapping( value = "/noticeDetail")
+	public ModelAndView noticeDetail(ModelAndView mav) throws Exception {
+		
+		mav.setViewName("/sub/noticeDetail");
+		return mav;
+	}
+	
 	@RequestMapping( value = "/travelSpot")
 	public ModelAndView travelSpotPage(ModelAndView mav) throws Exception {
 		mav.addObject("sub_header_p", "travelspot");
