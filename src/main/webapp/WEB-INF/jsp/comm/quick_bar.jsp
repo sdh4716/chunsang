@@ -6,7 +6,7 @@
         <li class="tel"><span>010<br>2585<br>6946</span><p>문의전화</p></li>
         <li><a href="reservation"><i class="fa fa-bookmark"></i><p>예약안내</p></a></li>
         <!-- <li><a href=""><i class="fa fa-calendar"></i><p>예약하기</p></a></li> -->
-        <li><a href="room_sky"><i class="fa fa-bed"></i><p>객실안내</p></a></li>        
+        <li><a href="room"><i class="fa fa-bed"></i><p>객실안내</p></a></li>        
         <!-- <li class="kakao_mo"><a href=""><i class="fa fa-comments-o"></i><p>카톡문의</p></a></li> -->
     </ul>
     <button class="toTop"><i class="fa fa-angle-up"></i>TOP</button>   

@@ -25,6 +25,13 @@
             	location.href="/admin/boardWrite?bType=notice";
             });
             
+         	// jQuery
+            $(window).on('resize', function(){
+                console.log('resize event!');
+
+                grid.refreshLayout();
+            });
+            
         });
     	
     	// 데이터 조회
@@ -52,7 +59,7 @@
     	function createGrid(){
             grid = new tui.Grid({
                 el : document.getElementById('grid'),
-                scrollX : false,
+                scrollX : true,
                 scrollY : false,
                 bodyHeight : 409,
                 editable : false,
@@ -64,11 +71,11 @@
                         header : 'No.',
                         name   : 'seq',
                         align  : "center",
-                        width  : 100
                     },{
                         header : '제목',
                         name   : 'title',
                   	 	align  : "center",
+                  	 	minWidth : 190,
                   	 	renderer: {
                   	 		type : CustomLinkRenderer
                   	 	}
@@ -76,17 +83,10 @@
                         header : '작성자',
                         name   : 'regId',
                         align  : "center",
-                        width  : 150
                     },{
                         header : '작성일',
                         name   : 'regDt',
                         align  : "center",
-                        width  : 150
-                    },{
-                        header : '조회수',
-                        name   : 'hitCnt',
-                        align  : "center",
-                        width  : 150
                     }
                 ],
                 columnOptions: {

@@ -4,6 +4,14 @@
 <html lang="ko">
 <head>
 	<%@include file="../comm/common_inc.jsp"%>    
+	
+	<style>
+		@media (max-width: 1024px) {
+		    #sh_aside {
+		        display: "block";
+		    }
+		}
+	</style>
 </head>
 <body>
 
@@ -88,7 +96,7 @@
 				function getRoomPrice(){
 					
 					// 비동기적으로 데이터 요청하고 처리하는 콜백
-				    requestDataGet("/sub/selectRoomPrice", {});
+				    requestDataGet("/comm/selectRoomPrice", {});
 					
 					const roomPriceList = results.roomPriceList;
 					

@@ -66,7 +66,7 @@
 		
 		<!-- 반응형메뉴 [s] -->
         <div id="topmenuM">
-            <h1 id="m_logo"><a href="main.do"><img src="img/common/mainLogo.png" alt="Sample" style="height:40px;"/></a></h1>
+            <h1 id="m_logo"><a href="main"><img src="img/common/mainLogo.png" alt="Sample" style="height:40px;"/></a></h1>
             <!-- 메뉴 버튼 -->
             <div id="m_navBtn"><span></span></div>
             <a href="tel:01025856946" class="tel"><span class="sound_only">예약문의</span><i class="fa fa-phone"></i></a>
@@ -83,8 +83,8 @@
                         <li>
                             <button class="m_bmenu" type="button">Room</button>
                             <ul class="m_smenu">
-                                <li><a href="room_sky">하늘</a></li>
-                            	<li><a href="room_cloud">구름</a></li>
+                                <li><a href="room">하늘</a></li>
+                            	<li><a href="room">구름</a></li>
                             </ul>
                         </li>
                         <!-- <li>
@@ -97,6 +97,12 @@
                             <button class="m_bmenu" type="button">Reservation</button>
                             <ul class="m_smenu">
                                 <li><a href="reservation">예약안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button class="m_bmenu" type="button">Notice</button>
+                            <ul class="m_smenu">
+                                <li><a href="notice">공지사항</a></li>
                             </ul>
                         </li>
                         <li>

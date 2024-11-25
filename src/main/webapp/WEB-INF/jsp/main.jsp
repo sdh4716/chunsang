@@ -145,7 +145,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="room_sky">
+                                <a href="room">
                                 <div class="bg"></div>
                                 <div class="txt">
                                     <span>room</span>

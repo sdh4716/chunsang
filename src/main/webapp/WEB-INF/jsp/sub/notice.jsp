@@ -58,29 +58,22 @@
 	                        header : 'No.',
 	                        name   : 'seq',
 	                        align  : "center",
-	                        width  : 100
 	                    },{
 	                        header : '제목',
 	                        name   : 'title',
 	                  	 	align  : "center",
 	                  	 	renderer: {
 	                  	 		type : CustomLinkRenderer
-	                  	 	}
+	                  	 	},
+	                    	minWidth : 190
 	                    },{
 	                        header : '작성자',
 	                        name   : 'regId',
 	                        align  : "center",
-	                        width  : 150
 	                    },{
 	                        header : '작성일',
 	                        name   : 'regDt',
 	                        align  : "center",
-	                        width  : 150
-	                    },{
-	                        header : '조회수',
-	                        name   : 'hitCnt',
-	                        align  : "center",
-	                        width  : 150
 	                    }
 	                ],
 	                columnOptions: {
