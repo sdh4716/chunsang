@@ -1,14 +1,11 @@
-package com.chunsang.pension.admin.dto;
-
-import java.time.LocalDateTime;
+package com.chunsang.pension.admin.model;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 
 @Builder
-@Data
-public class VisitDetailDTO {
+@Getter
+public class VisitDetail {
 
 	private int seq;
 	private String accessTime;

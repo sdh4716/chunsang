@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6{font-family:'Noto Sans KR'}
 #top_logo{float:left;position:relative;top:50%;transform:translateY(-50%)}
 
 /* 대분류  */
-#topNav{position:absolute;z-index:1;height: 100px;width: 724px;left: 50%;top: 0;transform:translateX(-50%)}
+#topNav{position:absolute;z-index:1;height: 100px;width: 1024px;left: 50%;top: 0;transform:translateX(-50%)}
 #topNav:after{display:block;content:"";visibility:hidden;clear:both}
 #topNav > li{float:left;position:relative;padding:0 25px;line-height: 100px}
 #topNav > li > a{display:block;font-size:17px;font-weight:700;color:#222;letter-spacing:-.1px;transition:all .2s;font-family:'mulish'}

@@ -3,7 +3,7 @@
 
 <mapper namespace="AdminDAO">
 	
-	<select id="selectUserVisitDetail" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDetailDTO">
+	<select id="selectUserVisitDetail" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.model.VisitDetail">
 		/* AdminDAO.selectUserVisitAll 방문자 수의 전체 정보를 조회 */
 		SELECT 
 			SEQ,
@@ -22,7 +22,7 @@
 			ACCESS_TIME
 	</select>
 	
-	<select id="selectUserVisit" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.dto.VisitDTO">
+	<select id="selectUserVisit" parameterType="com.chunsang.pension.comm.vo.SearchVO" resultType="com.chunsang.pension.admin.model.Visit">
 		/* AdminDAO.selectUserVisit 방문자 수의 전체 정보를 조회 */
 		SELECT 
   			DATE_FORMAT(ACCESS_TIME, '%Y-%m-%d') as ACCESS_TIME,

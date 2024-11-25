@@ -1,7 +1,6 @@
 package com.chunsang.pension.admin.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.chunsang.pension.admin.dto.VisitDTO;
-import com.chunsang.pension.admin.dto.VisitDetailDTO;
 import com.chunsang.pension.admin.service.AdminService;
-import com.chunsang.pension.admin.vo.VisitDetailVO;
-import com.chunsang.pension.admin.vo.VisitVO;
+import com.chunsang.pension.admin.model.Visit;
+import com.chunsang.pension.admin.model.VisitDetail;
 import com.chunsang.pension.comm.vo.SearchVO;
 
 @Controller
@@ -73,21 +70,9 @@ public class AdminController {
 		ModelAndView mav  = new ModelAndView();
 		
 		try {
-			List<VisitDTO> visitDtoList = adminService.selectUserVisit(searchVO);
-	        // BoardDTO를 BoardVO에 매핑
-	        List<VisitVO> visitVoList = new ArrayList<VisitVO>();
+	        List<Visit> visitList = adminService.selectUserVisit(searchVO);
 	        
-	        for (VisitDTO dto : visitDtoList) {
-	        	// VisitDto의 데이터를 visitVo에 매핑
-	        	VisitVO vo = VisitVO.builder()
-	            				.accessTime(dto.getAccessTime())
-	            				.visitCnt(dto.getVisitCnt())
-	            				.build();
-	            
-	        	visitVoList.add(vo);
-	        }
-	        
-	        mav.addObject("visitList", visitVoList);
+	        mav.addObject("visitList", visitList);
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -106,25 +91,9 @@ public class AdminController {
 		ModelAndView mav  = new ModelAndView();
 		
 		try {
-			List<VisitDetailDTO> visitDetailDtoList = adminService.selectUserVisitDetail(searchVO);
-			// BoardDTO를 BoardVO에 매핑
-			List<VisitDetailVO> visitDetailVoList = new ArrayList<VisitDetailVO>();
+			List<VisitDetail> visitDetailList = adminService.selectUserVisitDetail(searchVO);
 			
-			for (VisitDetailDTO dto : visitDetailDtoList) {
-				// VisitDto의 데이터를 visitVo에 매핑
-				VisitDetailVO vo = VisitDetailVO.builder()
-						.seq(dto.getSeq())
-						.accessTime(dto.getAccessTime())
-						.os(dto.getOs())
-						.browser(dto.getBrowser())
-						.isBot(dto.getIsBot())
-						.userAgent(dto.getUserAgent())
-						.build();
-				
-				visitDetailVoList.add(vo);
-			}
-			
-			mav.addObject("visitDetailList", visitDetailVoList);
+			mav.addObject("visitDetailList", visitDetailList);
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

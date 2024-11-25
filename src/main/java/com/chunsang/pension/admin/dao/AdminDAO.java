@@ -4,8 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.chunsang.pension.admin.dto.VisitDTO;
-import com.chunsang.pension.admin.dto.VisitDetailDTO;
+import com.chunsang.pension.admin.model.Visit;
+import com.chunsang.pension.admin.model.VisitDetail;
 import com.chunsang.pension.comm.extensions.CommonExtendedDAO;
 import com.chunsang.pension.comm.vo.SearchVO;
 
@@ -18,11 +18,11 @@ public class AdminDAO extends CommonExtendedDAO{
 	@Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<VisitDTO> selectUserVisit(SearchVO search) throws SQLException{
+	public List<Visit> selectUserVisit(SearchVO search) throws SQLException{
 		return sqlSessionTemplate.selectList("AdminDAO.selectUserVisit", search);
 	}
 	
-	public List<VisitDetailDTO> selectUserVisitDetail(SearchVO search) throws SQLException{
+	public List<VisitDetail> selectUserVisitDetail(SearchVO search) throws SQLException{
 		return sqlSessionTemplate.selectList("AdminDAO.selectUserVisitDetail", search);
 	}
 	

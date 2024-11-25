@@ -42,6 +42,18 @@
                         </ul>
                     </li>
                     <li class="menu-item ">
+                        <a href="special">Special</a>
+                        <ul class="top_nav_s">
+                            <li><a href="reservation">부대시설</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="special">Story</a>
+                        <ul class="top_nav_s">
+                            <li><a href="reservation">천상화원<br>이야기</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
                         <a href="notice">Notice</a>
                         <ul class="top_nav_s">
                             <li><a href="notice">공지사항</a></li>
@@ -97,6 +109,12 @@
                             <button class="m_bmenu" type="button">Reservation</button>
                             <ul class="m_smenu">
                                 <li><a href="reservation">예약안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button class="m_bmenu" type="button">Special</button>
+                            <ul class="m_smenu">
+                                <li><a href="reservation">부대시설</a></li>
                             </ul>
                         </li>
                         <li>

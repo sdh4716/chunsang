@@ -5,7 +5,6 @@ import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.DateProperty;
 import org.springframework.stereotype.Service;
 
-import com.chunsang.pension.admin.vo.VisitDetailVO;
 import com.chunsang.pension.airbnb.vo.ReservationVO;
 
 import java.io.StringReader;
