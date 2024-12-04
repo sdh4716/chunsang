@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	
+	$('#subBnr .txt_area').delay(200).animate({
+		"opacity" : "1"
+	}, 800);
 					
 	if (location.protocol === 'http:' && location.host != 'localhost:8080' ) {
 		location.href = 'https://' + location.host;
@@ -104,51 +108,7 @@ function formatDate(date){
  };*/
  
  
-class MyUploadAdapter {
-    constructor(loader) {
-        this.loader = loader;
-        this.url = '/comm/uploadFile'; // 서버 업로드 엔드포인트
-    }
 
-    upload() {
-        return this.loader.file
-            .then((file) => new Promise((resolve, reject) => {
-                const formData = new FormData();
-                formData.append('file', file);
-
-                $.ajax({
-                    url: this.url,
-                    type: 'POST',
-                    data: formData,
-                    processData: false, // 파일 데이터를 쿼리 문자열로 변환하지 않음
-                    contentType: false, // Content-Type을 자동으로 설정
-                    success: (response) => {
-                        if (response.uploaded) {
-                            resolve({
-                                default: response.url, // 서버에서 반환된 이미지 URL
-                            });
-                        } else {
-                            reject(response.error || '업로드 실패');
-                        }
-                    },
-                    error: (xhr, status, error) => {
-                        console.error('AJAX 요청 중 오류 발생:', error);
-                        reject('업로드 실패');
-                    },
-                });
-            }));
-    }
-
-    abort() {
-        console.warn('업로드가 중단되었습니다.');
-    }
-}
-
-function MyCustomUploadAdapterPlugin(editor) {
-    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-        return new MyUploadAdapter(loader);
-    };
-}
 
 /*const uploadPlugin = (editor) => {
   editor.plugins.get('FileRepository').createUploadAdapter = (

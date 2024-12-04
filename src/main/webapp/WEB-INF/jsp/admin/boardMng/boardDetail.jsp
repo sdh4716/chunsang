@@ -28,16 +28,32 @@
     	
     	$(document).ready(function(){
     		
+    		//boardId에 따른 버튼 숨김 처리
+    		btnInit();
+    		
+    		//게시판 상세 조회
     		getData();
     		
     		//목록버튼 클릭
     		$("#btnList").click(function(){
-    			location.href='/admin/noticeMng';
+    			
+    			if(boardId == 'GALLERY'){
+    				location.href='/admin/galleryMng';
+    			}else{
+    				location.href='/admin/noticeMng';
+    			}
+    			
+    			
     		});
     		
     		//수정버튼 클릭
         	$("#btnEdit").click(function(){
         		location.href='/admin/boardWrite?boardId=' + boardId + '&seq=' + seq;
+        	});
+    		
+    		//수정버튼 클릭
+        	$("#btnDelete").click(function(){
+        		deleteBoard();
         	});
     		
         });
@@ -71,6 +87,43 @@
     		$("#title").text(data.title);
     		$("#content").append(data.content);
     		
+    	}
+    	
+    	//삭제 버튼 클릭
+    	function deleteBoard(){
+    		if(!confirm('게시글을 삭제하시겠습니까?')){
+    			return;
+    		}
+    		
+    		const url = "/comm/deleteBoard";
+    		const params = { "boardId" : boardId , "seq" : seq };
+    		
+    		$.ajax({
+    			url: url,
+    			type: 'POST',
+    			data : params,
+    			async : false,
+    			success: function(data) {
+    				
+    				console.log(data);
+    				
+    				if(data.isSuccess == true){
+    					alert('삭제되었습니다.');
+    					location.href='/admin/noticeMng';
+    				}
+    			},
+    			error: function(xhr) {
+    			  console.log('실패 - ', xhr);
+    			}
+    		});
+    	}
+    	
+    	//버튼 init
+    	function btnInit(){
+    		if(boardId == 'SPECIAL'){
+    			$('#btnList').css('display', 'none');
+    			$('#btnDelete').css('display', 'none');
+    		}
     	}
     	
     </script>
@@ -120,13 +173,14 @@
 	            					<div class="float-right" style="">
 			            				<button type="button" id="btnList" class="btn btn-outline-success">목록</button>
 			            				<button type="button" id="btnEdit" class="btn btn-outline-primary">수정</button>
+			            				<button type="button" id="btnDelete" class="btn btn-outline-danger">삭제</button>
 						            </div>
 		            				<div class="form-group">
 		            					<div id="title" class="titleBox" style=""></div>
 		            					<hr/>
 		            				</div>
 		            				<div class="contentBox">
-		            					<div id="content" style="border:5px;"></div>
+		            					<div id="content" class="ck-content" style="border:5px;"></div>
 		            				</div>
 	            				</form>
 	            			</div>

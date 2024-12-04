@@ -18,8 +18,14 @@
                     <a href="/admin/image_main" class="dropdown-toggle active"> <i class="menu-icon fa fa-cogs"></i>상품관리</a>
                 </li> -->
                 <li class="menu-title">게시판 관리</li>
-                <li class="menu-item-has-children dropdown" id="noticeBoardMng">
+                <li class="menu-item-has-children dropdown" id="noticeMng">
                     <a href="/admin/noticeMng" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>공지사항 관리</a>
+                </li>
+                <li class="menu-item-has-children dropdown" id="specialMng">
+                    <a href="/admin/boardDetail?boardId=SPECIAL&seq=1" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>부대시설 관리</a>
+                </li>
+                <li class="menu-item-has-children dropdown" id="galleryMng">
+                    <a href="/admin/galleryMng" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>갤러리 관리</a>
                 </li>
                 <li class="menu-title">객실 관리</li>
                 <li class="menu-item-has-children dropdown" id="noticeBoardMng">

@@ -44,13 +44,13 @@
                     <li class="menu-item ">
                         <a href="special">Special</a>
                         <ul class="top_nav_s">
-                            <li><a href="reservation">부대시설</a></li>
+                            <li><a href="special">부대시설</a></li>
                         </ul>
                     </li>
                     <li class="menu-item ">
-                        <a href="special">Story</a>
+                        <a href="gallery">Gallery</a>
                         <ul class="top_nav_s">
-                            <li><a href="reservation">천상화원<br>이야기</a></li>
+                            <li><a href="gallery">갤러리</a></li>
                         </ul>
                     </li>
                     <li class="menu-item ">
@@ -114,7 +114,13 @@
                         <li>
                             <button class="m_bmenu" type="button">Special</button>
                             <ul class="m_smenu">
-                                <li><a href="reservation">부대시설</a></li>
+                                <li><a href="special">부대시설</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button class="m_bmenu" type="button">Gallery</button>
+                            <ul class="m_smenu">
+                                <li><a href="gallery">갤러리</a></li>
                             </ul>
                         </li>
                         <li>

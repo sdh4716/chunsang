@@ -24,10 +24,12 @@
 <meta property="og:image" content="img/common/logo.png">
 <meta property="og:url" content="">
 <title>지리산천상화원</title>
-<link rel="stylesheet" href="css/sh_main.css?20240213">
+	<link rel="stylesheet" href="css/sh_main.css?20240213">
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="/css/common.css">
 
 
-<link rel="apple-touch-icon" href="/assets/icon.png">
+	<link rel="apple-touch-icon" href="/assets/icon.png">
     <link rel="shortcut icon" href="/assets/icon.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
@@ -91,7 +93,6 @@
     
     <!-- ckeditor5 -->
 	<script src="/js/common/common.js"></script>
-	<script src="/ckeditor5/build/ckeditor.js"></script>
 	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
 	
 	<!-- fullcalendar -->

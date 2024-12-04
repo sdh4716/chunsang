@@ -73,9 +73,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- ckeditor5 -->
-	<script src="/ckeditor5/build/ckeditor.js"></script>
-	<!-- <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script> -->
-	<!-- <script src="/ckeditor5/build/translations/ko.js"></script> -->
+    <link rel="stylesheet" href="/ckeditor5/ckeditor5.css">
+	<script type="module" src="/ckeditor5/ckeditor5.js"></script>
+	
+   	<!-- mansonry -->
+	<script src="/js/packages/mansonry/mansonry.pkgd.min.js"></script>
+	<link rel="stylesheet" href="/css/common.css">
 	
 	<!-- fullcalendar -->
 	<script src="/js/packages/fullcalendar-6.1.15/dist/index.global.min.js"></script>

@@ -155,7 +155,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:alert('준비중입니다.')">
+                                <a href="special">
                                 <div class="bg"></div>
                                 <div class="txt">
                                     <span>special</span>

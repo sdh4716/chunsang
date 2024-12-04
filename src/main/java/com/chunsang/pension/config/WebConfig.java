@@ -46,6 +46,11 @@ public class WebConfig implements WebMvcConfigurer{
         registry.addResourceHandler("/upload/ckEditor/**")
                 //.addResourceLocations("file:///D:/upload/ckEditor/");
         		.addResourceLocations("file:///home/hosting_users/sdh4716/upload/ckEditor/");
+        
+        // 외부 디렉토리
+        registry.addResourceHandler("/upload/thumbnail/**")
+                //.addResourceLocations("file:///D:/upload/thumbnail/");
+        		.addResourceLocations("file:///home/hosting_users/sdh4716/upload/thumbnail/");
     }
     
 	

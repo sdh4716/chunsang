@@ -30,16 +30,17 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping( value = "/admin/image_main")
-	public ModelAndView imageMng(ModelAndView mav) throws Exception {
-		mav.setViewName("admin/imageMng/image_main");
-		return mav;
-	}
-	
 	//공지사항 관리
 	@RequestMapping( value = "/admin/noticeMng")
 	public ModelAndView noticeMng(ModelAndView mav) throws Exception {
-		mav.setViewName("admin/boardMng/noticeBoardMng");
+		mav.setViewName("admin/boardMng/noticeMng");
+		return mav;
+	}
+	
+	//갤러리 관리
+	@RequestMapping( value = "/admin/galleryMng")
+	public ModelAndView galleryMng(ModelAndView mav) throws Exception {
+		mav.setViewName("admin/boardMng/galleryMng");
 		return mav;
 	}
 	
@@ -50,6 +51,7 @@ public class AdminController {
 		return mav;
 	}
 	
+	//게시글 작성
 	@RequestMapping( value = "/admin/boardWrite")
 	public ModelAndView boardWrite(ModelAndView mav) throws Exception {
 		mav.setViewName("admin/boardMng/boardWrite");

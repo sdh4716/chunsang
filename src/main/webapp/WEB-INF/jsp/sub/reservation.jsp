@@ -97,7 +97,8 @@
 										</tr>
 									</table>
             					</div>
-								
+								<div id="penalty" class="guid_txt" style="margin-top:20px;">
+								</div>
 							</div>
 						</div>
 						<div class="room_guid">

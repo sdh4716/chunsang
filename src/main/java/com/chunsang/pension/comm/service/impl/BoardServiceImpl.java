@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chunsang.pension.comm.dao.BoardDAO;
-import com.chunsang.pension.comm.dto.BoardDTO;
+import com.chunsang.pension.comm.model.Board;
 import com.chunsang.pension.comm.service.BoardService;
 
 @Transactional
@@ -19,19 +19,27 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 
 	@Override
-	public void insertBoard(BoardDTO board) throws Exception {
+	public void insertBoard(Board board) throws Exception {
 		boardDAO.insertBoard(board);
 	}
 	
 	@Override
-	public void updateBoard(BoardDTO board) throws Exception {
+	public void updateBoard(Board board) throws Exception {
 		boardDAO.updateBoard(board);
+	}
+	
+	@Override
+	public void deleteBoard(Board board) throws Exception {
+		boardDAO.deleteBoard(board);
+		
 	}
 
 	@Override
-	public List<BoardDTO> selectBoardList(BoardDTO board) throws Exception {
+	public List<Board> selectBoardList(Board board) throws Exception {
 		return boardDAO.selectBoardList(board);
 	}
+
+
 
 	
 }

@@ -1,6 +1,7 @@
 package com.chunsang.pension.comm.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -26,6 +27,8 @@ import com.chunsang.pension.comm.model.RoomPrice;
 import com.chunsang.pension.comm.service.CommonService;
 import com.chunsang.pension.comm.vo.SearchVO;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 /*
  * 프로젝트 내 공통적으로 사용되는 로직을 모아놓은 Controller
  * by dev1song
@@ -40,6 +43,9 @@ public class CommonController {
 	//application.properties에서 조회
 	@Value("${path.ckEditor}")
 	private String ckEditorPath;
+	
+	@Value("${path.thumbnail}")
+	private String thumbnailPath;
 	
 	//객실 요금 조회
 	@RequestMapping(value = "/selectRoomPrice", method=RequestMethod.GET)
@@ -162,5 +168,37 @@ public class CommonController {
 
 	    return mav;
 	}
+	
+	@PostMapping("/createThumbnail")
+    public ModelAndView createThumbnail(@RequestParam("imageName") String imageName) throws Exception {
+		ModelAndView mav = new ModelAndView("jsonView");
+		
+        try {
+            File inputFile = new File(ckEditorPath + imageName);
+            String thumbnailName = "thumb_" + inputFile.getName();
+            File thumbnailFile = new File(thumbnailPath + thumbnailName);
+
+            // 썸네일 생성
+            Thumbnails.of(inputFile)
+                    .size(400, 300) // 원하는 썸네일 크기
+                    .toFile(thumbnailFile);
+
+            // 썸네일 경로 반환
+            mav.addObject("thumbnailDir", "/upload/thumbnail/" + thumbnailName);
+            mav.addObject("success", "true");
+        }catch (FileNotFoundException e) {
+        	mav.addObject("success", "false");
+        	mav.addObject("error", e.getMessage());
+        	e.printStackTrace();
+		}catch (IOException e) {
+			mav.addObject("success", "false");
+			mav.addObject("error", e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
+        
+        return mav;
+    }
 	
 }

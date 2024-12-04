@@ -181,21 +181,24 @@
 							<div id="bo_v_img">
 								<div class="gallery_img">
 									<img
-										src="img/room/sky_1.png"
-										id="large_img_sky" alt="객실이름">
+										src="img/room/sky_1.jpg"
+										id="large_img_sky" alt="하늘">
 								</div>
 
 								<ul class="gallery_thumb" id="gallery_thumb_sky">
 									<li
-										data-large="img/room/sky_1.png"
-										style="background: url(img/room/sky_1.png)"
+										data-large="img/room/sky_1.jpg"
+										style="background: url(img/room/sky_1.jpg)"
 										class="on"></li>
 									<li
-										data-large="img/room/sky_2.png"
-										style="background: url(img/room/sky_2.png)"></li>
+										data-large="img/room/sky_2.jpg"
+										style="background: url(img/room/sky_2.jpg)"></li>
 									<li
-										data-large="img/room/sky_3.png"
-										style="background: url(img/room/sky_3.png)"></li>
+										data-large="img/room/sky_3.jpg"
+										style="background: url(img/room/sky_3.jpg)"></li>
+									<li
+										data-large="img/room/sky_4.jpg"
+										style="background: url(img/room/sky_4.jpg)"></li>
 								</ul>
 							</div>
 							<div class="room_info_area">
@@ -310,24 +313,24 @@
 							<div id="bo_v_img">
 								<div class="gallery_img">
 									<img
-										src="img/room/cloud_1.png"
+										src="img/room/cloud_1.jpg"
 										id="large_img_cloud" alt="객실이름">
 								</div>
 
 								<ul class="gallery_thumb" id="gallery_thumb_cloud">
 									<li
-										data-large="img/room/cloud_1.png"
-										style="background: url(img/room/cloud_1.png)"
+										data-large="img/room/cloud_1.jpg"
+										style="background: url(img/room/cloud_1.jpg)"
 										class="on"></li>
 									<li
 										data-large="img/room/cloud_2.png"
 										style="background: url(img/room/cloud_2.png)"></li>
 									<li
-										data-large="img/room/cloud_3.png"
-										style="background: url(img/room/cloud_3.png)"></li>
+										data-large="img/room/cloud_3.jpg"
+										style="background: url(img/room/cloud_3.jpg)"></li>
 									<li
-										data-large="img/room/cloud_4.png"
-										style="background: url(img/room/cloud_4.png)"></li>
+										data-large="img/room/cloud_4.jpg"
+										style="background: url(img/room/cloud_4.jpg)"></li>
 								</ul>
 							</div>
 							<div class="room_info_area">

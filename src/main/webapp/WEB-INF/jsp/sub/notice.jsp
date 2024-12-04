@@ -6,6 +6,11 @@
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	<%@include file="../comm/common_inc.jsp"%>
 	
+	<style>
+		.tui-grid-container {
+		  font-family: 'Noto Sans KR';
+		}
+	</style>
 </head>
 <body>
 
@@ -25,11 +30,12 @@
 	    	function getData(){
 	    		
 	    		const url = "/comm/selectBoardList";
+	    		const params = {'boardId' : 'NOTICE'};
 	    		
 	    		$.ajax({
 	    			url: url,
 	    			type: 'GET',
-	    			data : [],
+	    			data : params,
 	    			async : false,
 	    			success: function(data) {
 	    				console.log(data);
@@ -104,7 +110,7 @@
 	        		const boardId = grid.getValue(props.rowKey,"boardId");
 	        		const seq = grid.getValue(props.rowKey,"seq");
 	        		
-	        		this.el.href = '/noticeDetail?boardId=' + boardId + '&seq=' + seq;
+	        		this.el.href = '/boardDetail?boardId=' + boardId + '&seq=' + seq;
 	        		this.el.innerText = String(props.value);
 	        	}
 	        }
@@ -146,7 +152,7 @@
 				<div id="sh_content">
 					<div class="room_info_area">
 						
-						<div id="grid"></div>
+						<div id="grid" style="font-family : 'Noto Sans KR'"></div>
 					</div>
 				</div>
 				<!-- sh_content -->

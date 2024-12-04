@@ -184,7 +184,7 @@
                                     <h4 class="box-title">예약정보 </h4>
                                 </div>
                                 <div class="card-body--" style="">
-                                	<div id="calendar" class="reservationCalendar" style="width:45%; margin: 0 auto; padding:20px;"></div>
+                                	<div id="calendar" class="reservationCalendar" style="width:50%; margin: 0 auto; padding:20px;"></div>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->

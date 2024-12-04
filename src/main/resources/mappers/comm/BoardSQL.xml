@@ -3,20 +3,7 @@
 
 <mapper namespace="BoardDAO">
 	
-	<resultMap id="boardResultMap" type="com.chunsang.pension.comm.dto.BoardDTO">
-	    <result property="boardId" column="BOARD_ID"/>
-	    <result property="seq" column="SEQ"/>
-	    <result property="title" column="TITLE"/>
-	    <result property="content" column="CONTENT"/>
-	    <result property="atchFileId" column="ATCH_FILE_ID"/>
-	    <result property="regDt" column="REG_DT"/>
-	    <result property="regId" column="REG_ID"/>
-	    <result property="imgFileId" column="IMG_FILE_ID"/>
-	    <result property="updDt" column="UPD_DT"/>
-	    <result property="updId" column="UPD_ID"/>
-	</resultMap>
-	
-	<insert id="insertBoard" parameterType="com.chunsang.pension.comm.dto.BoardDTO">
+	<insert id="insertBoard" parameterType="com.chunsang.pension.comm.model.Board">
 		/* BoardDAO.insertBoard 게시판 글 작성 */
 		INSERT INTO 
 			BOARD
@@ -25,10 +12,9 @@
 				, SEQ
 				, TITLE
 				, CONTENT
-				, ATCH_FILE_ID
 				, REG_DT
 				, REG_ID
-				, IMG_FILE_ID
+				, THUMBNAIL_DIR
 			)
 			VALUES
 			(
@@ -36,15 +22,14 @@
 				, (SELECT(COALESCE(MAX(SB.SEQ), 0) + 1) AS SEQ FROM BOARD SB WHERE BOARD_ID = #{boardId})
 				, #{title}
 				, #{content}
-				, #{atchFileId}
 				, SYSDATE()
 				, #{regId}
-				, #{imgFileId}
+				, #{thumbnailDir}
 			)
 	</insert>
 	
-	<update id="updateBoard" parameterType="com.chunsang.pension.comm.dto.BoardDTO">
-		/* BoardDAO.insertBoard 게시판 수정 */
+	<update id="updateBoard" parameterType="com.chunsang.pension.comm.model.Board">
+		/* BoardDAO.updateBoard 게시판 수정 */
 		UPDATE
 			BOARD
 		SET
@@ -57,17 +42,24 @@
 			AND SEQ = #{seq}
 	</update>
 	
-	<select id="selectBoardList" parameterType="com.chunsang.pension.comm.dto.BoardDTO" resultMap="boardResultMap">
+	<delete id="deleteBoard" parameterType="com.chunsang.pension.comm.model.Board">
+		/* BoardDAO.deleteBoard 게시판 삭제 */
+		DELETE FROM BOARD
+		WHERE
+			BOARD_ID = #{boardId}
+			AND SEQ = #{seq}
+	</delete>
+	
+	<select id="selectBoardList" parameterType="com.chunsang.pension.comm.model.Board" resultType="com.chunsang.pension.comm.model.Board">
 		/* BoardDAO.selectBoardList 게시판 상세보기 */
 		SELECT 
 			  BOARD_ID 
 			, SEQ
 			, TITLE 
 			, CONTENT 
-			, ATCH_FILE_ID 
 			, REG_DT 
 			, REG_ID 
-			, IMG_FILE_ID 
+			, THUMBNAIL_DIR 
 			, UPD_DT
 			, UPD_ID
 		FROM
